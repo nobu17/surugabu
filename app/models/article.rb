@@ -9,6 +9,8 @@ class Article < ApplicationRecord
   validates :title, presence: true
   validates :sub_title, presence: true
   validates :content, presence: true
+  validates :areas, presence: true
+  validates :categorys, presence: true
 
   scope :search_article_by_id, lambda { |article_id|
     includes(:areas, :categorys).where(id: article_id).first

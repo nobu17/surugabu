@@ -31,10 +31,11 @@ module ArticleActions
       puts 'no existed'
     else
       @areas = @article.areas
-      # puts @areas.inspect
+      puts @areas.inspect
       @categorys = @article.categorys
       # puts @categorys.inspect
     end
+    puts 'article:!!!!!!!!' + @article.inspect
     # @article = Article.find_by(id: params[:id], include: %i[areas categorys])
   end
 

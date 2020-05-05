@@ -20,6 +20,18 @@
     <%= form.text_area :sub_title %>
 </div>
 
+<%= form.label :areas %>
+　　<%= form.collection_check_boxes(:area_ids, Area.all, :id, :name) do |b| %>
+　　<%= b.label { b.check_box + b.text } %>
+<% end %>
+
+</br>
+
+<%= form.label :categorys %>
+　　<%= form.collection_check_boxes(:category_ids, Category.all, :id, :name) do |b| %>
+　　<%= b.label { b.check_box + b.text } %>
+<% end %>
+
 <div class="field">
     <%= form.label :content %>
     <%= form.text_area :content %>
@@ -29,4 +41,5 @@
     <%= form.submit %>
 </div>
 <%= link_to '戻る', "/admin/article_edit/" %>
+
 <% end %>
