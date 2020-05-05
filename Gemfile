@@ -60,3 +60,6 @@ gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
 # for page-nation
 gem 'will_paginate'
 gem 'bootstrap-will_paginate'
+
+# for login
+gem 'devise'
