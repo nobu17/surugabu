@@ -1,3 +1,4 @@
+<%= javascript_pack_tag 'article_edit/_form' %>
 <%= form_with(model: article, url: admin_article_edit_path + "/" + article.id.to_s, local: true) do |form| %>
 <% if article.errors.any? %>
 <div id="error_explanation">
@@ -13,6 +14,14 @@
 <div class="field">
     <%= form.label :title %>
     <%= form.text_field :title %>
+</div>
+
+<div class="field image_field">
+    <%= form.label :title_image %>
+    <%= form.file_field :title_image %><br>
+    <div id="image_preview">
+        <%= display_image article.title_image %><br>
+    </div>
 </div>
 
 <div class="field">
