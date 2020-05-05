@@ -9,7 +9,6 @@ class Article < ApplicationRecord
   scope :search_article_by_id, lambda { |article_id|
     includes(:areas, :categorys).where(id: article_id).first
   }
-
   scope :search_by_page, lambda { |page|
     paginate(page: page, per_page: 3)
       .order(created_at: :desc)
