@@ -14,7 +14,7 @@
                 <h4><a href="#" class="badge badge-success m-1"><%= category.name %></a></h4>
                 <% end %>
             </div>
-            <img class="card-img-top mb-1" src="https://blog.counselor.or.jp/wp-content/uploads/2019/06/image001-20.jpg">
+            <%= image_tag_with_default @article.title_image, class: "card-img-top mb-1" %>
             <p class="art-p mt-2"><%= @article.content %></p>
 
             <div class="ggmap">
