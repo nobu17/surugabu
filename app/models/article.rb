@@ -7,6 +7,7 @@ class Article < ApplicationRecord
   has_many :categorys, through: :article_categorys
 
   has_one_attached :title_image
+  has_many_attached :content_images
 
   validates :title, presence: true
   validates :sub_title, presence: true

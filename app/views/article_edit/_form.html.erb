@@ -46,6 +46,17 @@
     <%= form.text_area :content %>
 </div>
 
+<div class="field image_field">
+    <%= form.label :content_images %>
+    <%= form.file_field :content_images, multiple: true %><br>
+    <% article.content_images.each do |image| %>
+    <%= image_tag(image, width:400) %>
+    <% end %>
+    <div id="image_preview">
+    </div>
+</div>
+
+
 <div class="actions">
     <%= form.submit %>
 </div>

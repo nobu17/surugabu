@@ -38,6 +38,8 @@ class ArticleEditController < ApplicationController
 
   # DELETE admin/article_edit/1
   def destroy
+    @article.title_image.purge if @article.title_image.attached?
+    @article.content_images.purge if @article.content_images.attached?
     @article.destroy
     redirect_to '/admin/article_edit', notice: 'Article was successfully deleted.'
   end
@@ -46,6 +48,6 @@ class ArticleEditController < ApplicationController
 
   # Only allow a list of trusted parameters through.
   def article_params
-    params.require(:article).permit(:title, :sub_title, :content, :title_image, area_ids: [], category_ids: [])
+    params.require(:article).permit(:title, :sub_title, :content, :title_image, content_images: [], area_ids: [], category_ids: [])
   end
 end
