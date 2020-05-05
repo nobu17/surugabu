@@ -1,0 +1,65 @@
+<div class="mx-auto" style="width: 300px;">
+    <%= will_paginate(@articles, :renderer => WillPaginate::ActionView::Bootstrap4LinkRenderer, :previous_label => ' &lt 前へ', :next_label => '次へ &gt') %>
+</div>
+<div class="row">
+    <div class="card mb-3">
+        <div class="row no-gutters">
+            <div class="col-lg-8 col-xs-12">
+                <img src="https://blog.counselor.or.jp/wp-content/uploads/2019/06/image001-20.jpg" class="card-img">
+            </div>
+            <div class="col-lg-4 col-xs-12">
+                <div class="card-body">
+                    <h2>
+                        <%= link_to 'sample記事で広重' , '/books/index' %>
+                    </h2>
+                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<% if @articles.length > 0 %>
+<div class="row">
+    <div class="col mb-4">
+        <div class="card h-100">
+            <a href="/articles/#{@articles.first.id}">
+                <img class=" card-img-top art-img" src="https://www.homepage-tukurikata.com/image/lion.jpg">
+            </a>
+            <div class="card-body">
+                <div><%= @articles.first.created_at %></div>
+                <h2>
+                    <%= link_to @articles.first.title , "/articles/#{@articles.first.id}"  %>
+                </h2>
+                <p class="card-text"><%= @articles.first.sub_title %></p>
+            </div>
+        </div>
+    </div>
+</div>
+<% end %>
+
+<div class="row row-cols-1 row-cols-md-2">
+    <% @articles.each_with_index do |ar, i| %>
+    <% if i != 0 %>
+    <div class="col mb-4 rounded">
+        <div class="card h-100">
+            <a href="/articles/#{ar.id}">
+                <img class=" card-img-top art-img" src="https://www.homepage-tukurikata.com/image/lion.jpg">
+            </a>
+            <div class="card-body">
+                <div>2019/12/10</div>
+                <h4>
+                    <%= link_to ar.title , "/articles/#{ar.id}" %>
+                </h4>
+                <p class="card-text"><%= ar.sub_title %></p>
+            </div>
+        </div>
+    </div>
+    <% else %>
+    <% end %>
+    <% end %>
+</div>
+<div class="mx-auto" style="width: 300px;">
+    <%= will_paginate(@articles, :renderer => WillPaginate::ActionView::Bootstrap4LinkRenderer, :previous_label => ' &lt 前へ', :next_label => '次へ &gt') %>
+</div>

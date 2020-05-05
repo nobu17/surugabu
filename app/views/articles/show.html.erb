@@ -1,0 +1,25 @@
+<div class="row">
+    <div class="card mb-3 col-md-12">
+        <div class="card-body">
+            <h6 class="card-subtitle mb-2 text-muted" style="text-align:right;">作成日: 2020/01/12　最終更新日: 2020/01/12</h6>
+            <h3>
+                <%= @article.title %>
+            </h3>
+            <h4 class="ml-1"><%= @article.sub_title %></h4>
+            <div class="row m-1">
+                <% @areas.each do |area| %>
+                <h4><a href="#" class="badge badge-info m-1"><%= area.name %></a></h4>
+                <% end %>
+                <% @categorys.each do |category| %>
+                <h4><a href="#" class="badge badge-success m-1"><%= category.name %></a></h4>
+                <% end %>
+            </div>
+            <img class="card-img-top mb-1" src="https://blog.counselor.or.jp/wp-content/uploads/2019/06/image001-20.jpg">
+            <p class="art-p mt-2"><%= @article.content %></p>
+
+            <div class="ggmap">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3264.8806069678203!2d138.93632851524276!3d35.08471578033757!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6019911823f19ee7%3A0x267e733f627c91f0!2z44CSNDE5LTAxMjMg6Z2Z5bKh55yM55Sw5pa56YOh5Ye95Y2X55S66ZaT5a6u77yW77yY77yQ!5e0!3m2!1sja!2sjp!4v1586253628009!5m2!1sja!2sjp" width="800" height="450" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
+            </div>
+        </div>
+    </div>
+</div>
