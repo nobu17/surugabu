@@ -34,3 +34,6 @@ Article.all.ids.sort.each do |article_id|
     ArticleCategory.create(article_id: article_id, category_id: category_id)
   end
 end
+
+user = User.new(:email => 'hogehoge@hoge.com', :password => 'hugahuga')
+user.save!
