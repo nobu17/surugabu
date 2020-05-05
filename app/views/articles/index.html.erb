@@ -28,7 +28,7 @@
                 <img class=" card-img-top art-img" src="https://www.homepage-tukurikata.com/image/lion.jpg">
             </a>
             <div class="card-body">
-                <div><%= @articles.first.created_at %></div>
+                <div><%= @articles.first.created_at.strftime("%Y/%m/%d") %></div>
                 <h2>
                     <%= link_to @articles.first.title , "/articles/#{@articles.first.id}"  %>
                 </h2>
@@ -48,7 +48,7 @@
                 <img class=" card-img-top art-img" src="https://www.homepage-tukurikata.com/image/lion.jpg">
             </a>
             <div class="card-body">
-                <div>2019/12/10</div>
+                <div><%= @articles.first.created_at.strftime("%Y/%m/%d") %></div>
                 <h4>
                     <%= link_to ar.title , "/articles/#{ar.id}" %>
                 </h4>
