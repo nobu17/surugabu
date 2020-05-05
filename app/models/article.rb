@@ -1,9 +1,9 @@
 # frozen_string_literal: true
 
 class Article < ApplicationRecord
-  has_many :article_areas
+  has_many :article_areas, dependent: :destroy
   has_many :areas, through: :article_areas
-  has_many :article_categorys
+  has_many :article_categorys, dependent: :destroy
   has_many :categorys, through: :article_categorys
 
   scope :search_article_by_id, lambda { |article_id|

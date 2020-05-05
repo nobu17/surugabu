@@ -37,4 +37,15 @@ module ArticleActions
     end
     # @article = Article.find_by(id: params[:id], include: %i[areas categorys])
   end
+
+  # Use callbacks to share common setup or constraints between actions.
+  def set_only_article
+    unless params[:id].nil?
+      @article = Article.search_article_by_id(params[:id])
+    end
+
+    puts @article.inspect
+    puts 'no existed' if @article.nil?
+    # @article = Article.find_by(id: params[:id], include: %i[areas categorys])
+  end
 end

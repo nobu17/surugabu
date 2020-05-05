@@ -14,5 +14,14 @@ Rails.application.routes.draw do
   get 'articles/', to: 'articles#index'
   get 'articles/pages/:page', to: 'articles#index'
   get 'articles/:id', to: 'articles#show'
+
   get 'admin/', to: 'admin#index'
+
+  get 'admin/article_edit/', to: 'article_edit#index'
+  post 'admin/article_edit/', to: 'article_edit#create'
+  put 'admin/article_edit/:id', to: 'article_edit#update'
+  patch 'admin/article_edit/:id', to: 'article_edit#update'
+  delete 'admin/article_edit/:id', to: 'article_edit#destroy'
+  get 'admin/article_edit/:id/edit', to: 'article_edit#edit'
+  get 'admin/article_edit/new', to: 'article_edit#new'
 end
