@@ -1,8 +1,7 @@
 <%= form_with(model: article, url: admin_article_edit_path , local: true) do |form| %>
 <% if article.errors.any? %>
 <div id="error_explanation">
-    <h2><%= pluralize(article.errors.count, "error") %> prohibited this tweet from being saved:</h2>
-
+    <h2><%= pluralize(article.errors.count, "error") %>：入力に問題があります。</h2>
     <ul>
         <% article.errors.full_messages.each do |message| %>
         <li><%= message %></li>
@@ -29,4 +28,5 @@
 <div class="actions">
     <%= form.submit %>
 </div>
+<%= link_to '戻る', "/admin/article_edit/" %>
 <% end %>

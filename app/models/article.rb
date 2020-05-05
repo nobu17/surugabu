@@ -6,6 +6,10 @@ class Article < ApplicationRecord
   has_many :article_categorys, dependent: :destroy
   has_many :categorys, through: :article_categorys
 
+  validates :title, presence: true
+  validates :sub_title, presence: true
+  validates :content, presence: true
+
   scope :search_article_by_id, lambda { |article_id|
     includes(:areas, :categorys).where(id: article_id).first
   }
