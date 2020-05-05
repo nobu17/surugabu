@@ -36,7 +36,8 @@ class ArticlesController < ApplicationController
 
   # Use callbacks to share common setup or constraints between actions.
   def set_article
-    @article = Article.includes(:areas, :categorys).where(id: params[:id]).first
+    # @article = Article.includes(:areas, :categorys).where(id: params[:id]).first
+    @article = Article.search_article_by_id(params[:id])
     puts @article.inspect
     if @article.nil?
       puts 'no existed'
