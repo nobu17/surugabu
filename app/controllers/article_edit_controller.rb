@@ -2,6 +2,7 @@
 
 class ArticleEditController < ApplicationController
   include ArticleActions
+  before_action :authenticate_user!
   before_action :set_articles, only: [:index]
   before_action :set_article, only: [:edit]
   before_action :set_only_article, only: %i[update destroy]
