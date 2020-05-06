@@ -61,10 +61,12 @@
 <div class="field image_field form-group">
     <%= form.label :content_images, "記事画像(複数選択可能)" %>
     <%= form.file_field :content_images, multiple: true, class: "form-control" %><br>
-    <% article.content_images.each do |image| %>
-    <%= image_tag(image, width:400) %>
-    <% end %>
-    <div id="image_preview">
+
+    <p>プレビュー画像</p>
+    <div id="image_previews">
+        <% article.content_images.each do |image| %>
+        <%= image_tag(image, width:400) %>
+        <% end %>
     </div>
 </div>
 
