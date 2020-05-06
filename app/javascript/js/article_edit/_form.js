@@ -9,14 +9,10 @@ $(document).on("turbolinks:load", function () {
 
   // add image preview display change function
   $("#article_title_image").on("change", function (e) {
-    console.log("change");
-    // reset preview area
     onChangeImage("#image_preview", e);
   });
   // add image preview display change function
   $("#article_content_images").on("change", function (e) {
-    console.log("change2");
-    // reset preview area
     onChangeImage("#image_previews", e);
   });
 
