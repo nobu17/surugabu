@@ -63,3 +63,6 @@ gem 'bootstrap-will_paginate'
 
 # for login
 gem 'devise'
+
+# jquery
+gem 'jquery-rails'
