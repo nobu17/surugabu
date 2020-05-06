@@ -12,6 +12,7 @@
             <th scope="col">タイトル</th>
             <th scope="col">サブタイトル</th>
             <th scope="col">投稿日</th>
+            <th scope="col">更新日</th>
             <th scope="col">#</th>
         </tr>
     </thead>
@@ -21,7 +22,8 @@
             <td><%= article.id %></td>
             <td><%= article.title %></td>
             <td><%= article.sub_title %></td>
-            <td><%= article.created_at %></td>
+            <td><%= article.created_at.strftime("%Y/%m/%d %H:%M") %></td>
+            <td><%= article.updated_at.strftime("%Y/%m/%d %H:%M") %></td>
             <td>
                 <%= link_to '編集', "/admin/article_edit/#{article.id}/edit" %>
                 <%= link_to '削除', "/admin/article_edit/#{article.id}", method: :delete, data: { confirm: 'Are you sure?' } %>
