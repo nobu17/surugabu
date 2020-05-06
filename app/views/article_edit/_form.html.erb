@@ -30,14 +30,14 @@
 </div>
 
 <%= form.label :areas %>
-　　<%= form.collection_check_boxes(:area_ids, Area.all, :id, :name) do |b| %>
+　　<%= form.collection_check_boxes(:area_ids, @all_areas, :id, :name) do |b| %>
 　　<%= b.label { b.check_box + b.text } %>
 <% end %>
 
 </br>
 
 <%= form.label :categorys %>
-　　<%= form.collection_check_boxes(:category_ids, Category.all, :id, :name) do |b| %>
+　　<%= form.collection_check_boxes(:category_ids, @all_categorys, :id, :name) do |b| %>
 　　<%= b.label { b.check_box + b.text } %>
 <% end %>
 
