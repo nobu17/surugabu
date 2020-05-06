@@ -8,6 +8,16 @@ body {
   font-size: 15px;
 }
 
+.hover-img {
+  opacity: 1;
+  -webkit-transition: .3s ease-in-out;
+  transition: .3s ease-in-out;
+}
+
+.hover-img:hover {
+  opacity: .5;
+}
+
 .art-img {
   width: 100%;
   height: 300px;

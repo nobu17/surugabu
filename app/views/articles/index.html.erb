@@ -1,35 +1,16 @@
-<div class="row">
-    <div class="card mb-3">
-        <div class="row no-gutters">
-            <div class="col-lg-8 col-xs-12">
-                <img src="https://blog.counselor.or.jp/wp-content/uploads/2019/06/image001-20.jpg" class="card-img">
-            </div>
-            <div class="col-lg-4 col-xs-12">
-                <div class="card-body">
-                    <h2>
-                        <%= link_to 'sample記事で広重' , '/books/index' %>
-                    </h2>
-                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-
-
 <% if @articles.length > 0 %>
 <div class="row">
     <div class="col mb-4">
-        <div class="card h-100">
-            <a href="/articles/#{@articles.first.id}">
-                <%= image_tag_with_default @articles.first.title_image, class: "card-img-top art-img" %>
-            </a>
+        <div class="card border-primary h-100">
+            <%= link_to "/articles/#{@articles.first.id}" do %>
+            <%= image_tag_with_default @articles.first.title_image, class: "card-img-top art-img hover-img" %>
+            <% end %>
             <div class="card-body">
                 <div><%= @articles.first.created_at.strftime("%Y/%m/%d") %></div>
                 <h2>
                     <%= link_to @articles.first.title, "/articles/#{@articles.first.id}"  %>
                 </h2>
-                <p class="card-text"><%= @articles.first.sub_title %></p>
+                <h4 class="card-text"><%= @articles.first.sub_title %></h4>
             </div>
         </div>
     </div>
@@ -42,14 +23,14 @@
     <div class="col mb-4 rounded">
         <div class="card h-100">
             <a href="/articles/#{ar.id}">
-                <%= image_tag_with_default ar.title_image, class: "card-img-top art-img" %>
+                <%= image_tag_with_default ar.title_image, class: "card-img-top art-img hover-img" %>
             </a>
             <div class="card-body">
                 <div><%= ar.created_at.strftime("%Y/%m/%d") %></div>
                 <h4>
                     <%= link_to ar.title , "/articles/#{ar.id}" %>
                 </h4>
-                <p class="card-text"><%= ar.sub_title %></p>
+                <h5 class="card-text"><%= ar.sub_title %></h5>
             </div>
         </div>
     </div>
