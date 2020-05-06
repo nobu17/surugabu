@@ -1,7 +1,5 @@
 <%= javascript_pack_tag 'article_edit/application' %>
 
-<div class="row">
-</div>
 
 <%= form_with(model: article, url: admin_article_edit_path + "/" + article.id.to_s, local: true) do |form| %>
 <% if article.errors.any? %>

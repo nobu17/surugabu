@@ -4,6 +4,15 @@ body {
   margin-top: 50px;
 }
 
+
+#error_explanation * li {
+  color: red;
+}
+
+#error_explanation * h2 {
+  color: red;
+}
+
 .sub-title {
   font-size: 15px;
 }

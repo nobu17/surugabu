@@ -12,7 +12,9 @@ class Article < ApplicationRecord
   has_many_attached :content_images
 
   validates :title, presence: true
+  validates :title, length: { minimum: 1, maximum: 20, too_long: "最大%{count}文字まで使えます" }
   validates :sub_title, presence: true
+  validates :sub_title, length: { minimum: 1, maximum: 50, too_long: "最大%{count}文字まで使えます" }
   validates :content, presence: true
   validates :areas, presence: true
   validates :categorys, presence: true
