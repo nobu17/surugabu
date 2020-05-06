@@ -1,6 +1,8 @@
 # frozen_string_literal: true
 
 class Article < ApplicationRecord
+  ITEM_NUMER_OF_PAGE = 9
+
   has_many :article_areas, dependent: :destroy
   has_many :areas, through: :article_areas
   has_many :article_categorys, dependent: :destroy
@@ -19,25 +21,25 @@ class Article < ApplicationRecord
     includes(:areas, :categorys).where(id: article_id).first
   }
   scope :search_by_page, lambda { |page|
-    paginate(page: page, per_page: 3)
+    paginate(page: page, per_page: ITEM_NUMER_OF_PAGE)
       .order(created_at: :desc)
   }
   scope :search_area_by_page, lambda { |area_id, page|
     joins(:areas)
       .where('areas.id = ?', area_id)
-      .paginate(page: page, per_page: 3)
+      .paginate(page: page, per_page: ITEM_NUMER_OF_PAGE)
       .order(created_at: :desc)
   }
   scope :search_category_by_page, lambda { |category_id, page|
     joins(:categorys)
       .where('categories.id = ?', category_id)
-      .paginate(page: page, per_page: 3)
+      .paginate(page: page, per_page: ITEM_NUMER_OF_PAGE)
       .order(created_at: :desc)
   }
   scope :search_area_category_by_page, lambda { |area_id, category_id, page|
     joins(:areas, :categorys)
       .where('(categories.id = ?) AND (areas.id = ?)', category_id, area_id)
-      .paginate(page: page, per_page: 3)
+      .paginate(page: page, per_page: ITEM_NUMER_OF_PAGE)
       .order(created_at: :desc)
   }
 end
