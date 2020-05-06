@@ -1,7 +1,7 @@
 @import "~bootstrap-material-design/scss/bootstrap-material-design";
 
 body {
-  margin-top: 70px;
+  margin-top: 60px;
 }
 
 .sub-title {
@@ -10,12 +10,12 @@ body {
 
 .hover-img {
   opacity: 1;
-  -webkit-transition: .3s ease-in-out;
-  transition: .3s ease-in-out;
+  -webkit-transition: 0.3s ease-in-out;
+  transition: 0.3s ease-in-out;
 }
 
 .hover-img:hover {
-  opacity: .5;
+  opacity: 0.5;
 }
 
 .art-img {
