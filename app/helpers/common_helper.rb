@@ -2,14 +2,14 @@
 
 module CommonHelper
   def display_image(image, width = 400)
-    if image.attached?
+    if image.present? && image.attached?
       image_tag(image, width: width)
     else
       image_tag('no-image.png', width: width)
     end
   end
 
-  def image_tag_with_default(image, option = {})
+  def image_tag_with_default(image, option = { width: 400 })
     if image.present?
       image_tag(image, option)
     else

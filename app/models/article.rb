@@ -17,6 +17,12 @@ class Article < ApplicationRecord
   validates :areas, presence: true
   validates :categorys, presence: true
 
+  def title_image_thumbnail
+    if title_image.attached?
+      title_image.variant(resize_to_fill: [400, 400]).processed
+    end
+  end
+
   scope :search_article_by_id, lambda { |article_id|
     includes(:areas, :categorys).where(id: article_id).first
   }

@@ -1,3 +1,11 @@
-<%= link_to '戻る', "/admin/article_edit/" %>
-<h1>記事編集(新規)</h1>
+<div class="row">
+    <div class="col m-1 md-12">
+        <%= link_to '戻る', "/admin/article_edit/", { class: "btn btn-primary btn-block btn-raised" } %>
+    </div>
+</div>
+
+<blockquote class="blockquote text-center">
+    <h1>記事編集(新規)</h1>
+</blockquote>
+
 <%= render 'form', article: @article %>
