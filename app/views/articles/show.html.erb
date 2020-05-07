@@ -1,7 +1,7 @@
 <%= javascript_pack_tag 'article/application' %>
 
 <div class="row">
-    <div class="card mb-3 col-md-12">
+    <div class="card mb-3 center-block col-md-9 mx-auto col-xs-12">
         <div class="card-body">
             <h6 class="card-subtitle mb-2 text-muted" style="text-align:right;">作成日: <%= @article.created_at.strftime("%Y/%m/%d") %>　最終更新日: <%= @article.updated_at.strftime("%Y/%m/%d") %></h6>
             <h3>
@@ -16,7 +16,7 @@
                 <h4><a href="#" class="badge badge-success m-1"><%= category.name %></a></h4>
                 <% end %>
             </div>
-            <%= image_tag_with_default @article.title_image, class: "card-img-top mb-1" %>
+            <%= image_tag_with_default @article.title_image, class: "card-img-top mb-3" %>
             <div id="actual_content" class="art-p mt-2 d-flex justify-content-center">
                 <div class="dots-loader mt-4">
                 </div>

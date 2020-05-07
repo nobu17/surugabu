@@ -10,7 +10,7 @@ function loadMD() {
     const str = marked(area.innerText);
     const displayArea = document.getElementById("actual_content");
     if(displayArea) {
-        displayArea.setAttribute("class", "art-p mt-2");
+        displayArea.setAttribute("class", "art-p mt-2 markdown-body");
         displayArea.innerHTML = str;
     }
   }
