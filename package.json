@@ -10,8 +10,7 @@
     "bootstrap-material-design": "^4.1.2",
     "jquery": "3.4.1",
     "popper.js": "^1.16.1",
-    "simplemde": "^1.11.2",
-    "turbolinks": "^5.2.0"
+    "simplemde": "^1.11.2"
   },
   "version": "0.1.0",
   "devDependencies": {
