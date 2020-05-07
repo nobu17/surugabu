@@ -22,9 +22,9 @@
     <% if i != 0 %>
     <div class="col mb-4 rounded">
         <div class="card h-100">
-            <a href="/articles/#{ar.id}">
-                <%= image_tag_with_default ar.title_image, class: "card-img-top art-img hover-img" %>
-            </a>
+            <%= link_to "/articles/#{ar.id}" do %>
+            <%= image_tag_with_default ar.title_image, class: "card-img-top art-img hover-img" %>
+            <% end %>
             <div class="card-body">
                 <div><%= ar.created_at.strftime("%Y/%m/%d") %></div>
                 <h4>
