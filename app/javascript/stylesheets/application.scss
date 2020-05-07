@@ -1,19 +1,56 @@
 @import "~bootstrap-material-design/scss/bootstrap-material-design";
-@import '~css-spinners';
-@import '~github-markdown-css';
+@import "~css-spinners";
+@import "~github-markdown-css";
 
 body {
   margin-top: 50px;
-  font-family: 'Lato', 'Noto Sans JP', 'ヒラギノ角ゴ ProN', 'Hiragino Kaku Gothic ProN', 'メイリオ', Meiryo, 'ＭＳ Ｐゴシック', 'MS PGothic', sans-serif;
+  font-family: "Lato", "Noto Sans JP", "ヒラギノ角ゴ ProN",
+    "Hiragino Kaku Gothic ProN", "メイリオ", Meiryo, "ＭＳ Ｐゴシック",
+    "MS PGothic", sans-serif;
 }
 
-h1, h2, h3, h4, h5, h6, p {
-  font-family: 'Lato', 'Noto Sans JP', 'ヒラギノ角ゴ ProN', 'Hiragino Kaku Gothic ProN', 'メイリオ', Meiryo, 'ＭＳ Ｐゴシック', 'MS PGothic', sans-serif;
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  font-family: "Lato", "Noto Sans JP", "ヒラギノ角ゴ ProN",
+    "Hiragino Kaku Gothic ProN", "メイリオ", Meiryo, "ＭＳ Ｐゴシック",
+    "MS PGothic", sans-serif;
 }
 
+.dropdown-toggle::after {
+  border: none;
+}
 
-.card {
-  border-radius: 2px;
+.nav-item a {
+  display: block;
+  padding: 0 0 5px;
+  position: relative;
+  text-decoration: none;
+}
+.nav-item a::before,
+.nav-item a::after {
+  border-bottom: solid 2px #f00;
+  bottom: 0;
+  content: "";
+  display: block;
+  position: absolute;
+  transition: all 0.3s ease;
+  -webkit-transition: all 0.3s ease;
+  width: 0;
+}
+.nav-item a::before {
+  left: 50%;
+}
+.nav-item a::after {
+  right: 50%;
+}
+.nav-item a:hover::before,
+.nav-item a:hover::after {
+  width: 50%;
 }
 
 hr {
@@ -49,7 +86,6 @@ hr {
 #image_previews img {
   max-width: 400px;
 }
-
 
 .art-img {
   width: 100%;
