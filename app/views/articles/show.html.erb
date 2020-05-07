@@ -10,10 +10,18 @@
             <h4 class="ml-1"><%= @article.sub_title %></h4>
             <div class="row m-1">
                 <% @areas.each do |area| %>
-                <h4><a href="#" class="badge badge-info m-1"><%= area.name %></a></h4>
+                <h4>
+                    <%= link_to "/articles/pages/1?area=#{area.id}", { class: "badge badge-info m-1" } do %>
+                    <%= area.name %>
+                    <% end %>
+                </h4>
                 <% end %>
                 <% @categorys.each do |category| %>
-                <h4><a href="#" class="badge badge-success m-1"><%= category.name %></a></h4>
+                <h4>
+                    <%= link_to "/articles/pages/1?category=#{category.id}", { class: "badge badge-success m-1" } do %>
+                    <%= category.name %>
+                    <% end %>
+                </h4>
                 <% end %>
             </div>
             <%= image_tag_with_default @article.title_image, class: "card-img-top mb-3" %>
