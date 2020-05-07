@@ -1,8 +1,9 @@
+<%= link_to '戻る', "/admin/", class: "btn btn-raised btn-danger col-md-4" %>
 <div class="mx-auto" style="width: 300px;">
     <h1>記事一覧</h1>
 </div>
 <div class="row">
-    <a class="btn btn-outline-primary col-md-12" href="/admin/article_edit/new" role="button">新規作成</a>
+    <a class="btn btn-raised btn-primary col-md-12" href="/admin/article_edit/new" role="button">新規作成</a>
 </div>
 
 <table class="table">
@@ -36,4 +37,3 @@
 <div class="mx-auto" style="width: 300px;">
     <%= will_paginate(@articles, :renderer => WillPaginate::ActionView::Bootstrap4LinkRenderer, :previous_label => ' &lt 前へ', :next_label => '次へ &gt') %>
 </div>
-<%= link_to '戻る', "/admin/" %>
