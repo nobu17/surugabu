@@ -1,6 +1,5 @@
 <%= javascript_pack_tag 'article_edit/application' %>
 
-
 <%= form_with(model: article, url: admin_article_edit_path + "/" + article.id.to_s, local: true) do |form| %>
 <% if article.errors.any? %>
 <div id="error_explanation">
@@ -28,8 +27,14 @@
     <%= form.file_field :title_image, { class:"form-control" } %>
     <br>
     <p>プレビュー画像</p>
+    <div class="row">
+        <hr class="col md-12">
+    </div>
     <div id="image_preview">
         <%= image_tag_with_default article.title_image_thumbnail %><br>
+    </div>
+    <div class="row">
+        <hr class="col md-12">
     </div>
 </div>
 
@@ -41,15 +46,19 @@
     <% end %>
 </div>
 
-
-
-</br>
+<div class="row">
+    <hr class="col md-12">
+</div>
 
 <div class="field form-group">
     <%= form.label :categorys, "タグ(カテゴリ)" %>
     　　<%= form.collection_check_boxes(:category_ids, @all_categorys, :id, :name) do |b| %>
     　　<%= b.label { b.check_box + b.text } %>
     <% end %>
+</div>
+
+<div class="row">
+    <hr class="col md-12">
 </div>
 
 
@@ -59,6 +68,10 @@
     <div id="cont_area"></div>
 </div>
 
+<div class="row">
+    <hr class="col md-12">
+</div>
+
 <div class="field image_field form-group">
     <%= form.label :content_images, "記事画像(複数選択可能)" %>
     <%= form.file_field :content_images, multiple: true, class: "form-control" %><br>
@@ -66,9 +79,13 @@
     <p>プレビュー画像</p>
     <div id="image_previews">
         <% article.content_images.each do |image| %>
-        <%= image_tag(image, width:400) %>
+        <%= image_tag(image, { width:400, class: "m-2" }) %>
         <% end %>
     </div>
+</div>
+
+<div class="row">
+    <hr class="col md-12">
 </div>
 
 
