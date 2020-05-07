@@ -7,6 +7,10 @@ module ArticleActions
     area = params[:area]
     category = params[:category]
 
+    @area = Area.find(area) unless area.nil?
+
+    @category = Category.find(category) unless category.nil?
+
     @articles = if !area.nil? && !category.nil?
                   Article.search_area_category_by_page(1, 1, params[:page])
                 elsif !area.nil?
@@ -41,9 +45,7 @@ module ArticleActions
 
   # Use callbacks to share common setup or constraints between actions.
   def set_only_article
-    unless params[:id].nil?
-      @article = Article.search_article_by_id(params[:id])
-    end
+    @article = Article.search_article_by_id(params[:id]) unless params[:id].nil?
 
     puts @article.inspect
     puts 'no existed' if @article.nil?
