@@ -1,18 +1,25 @@
-<% if !@area.nil? %>
+<% if !@area.nil? || !@category.nil? %>
 <div class="row">
-    <h4 class="ml-3 mr-2 col-md-12" style="border-bottom: 1px solid #c85179;border-left: 10px solid #c85179;padding: 7px;">
-        [ <%= @area.name %> ] の記事
+    <h4 class="ml-3 col-md-12" style="border-bottom: 1px solid #c85179;border-left: 10px solid #c85179;padding: 7px;">
+        [
+        <% if !@area.nil? %>
+        <%= @area.name %>
+        <% end %>
+        <% if !@category.nil? %>
+        <%= @category.name %>
+        <% end %>
+        ] の記事
     </h4>
 </div>
 <% end %>
 <% if @articles.length > 0 %>
 <div class="row">
     <div class="col mb-4">
-        <div class="card border-primary h-100">
+        <div class="card border-primary h-100" style="border-radius: 15px;">
             <%= link_to "/articles/#{@articles.first.id}" do %>
-            <%= image_tag_with_default @articles.first.title_image, class: "card-img-top art-img hover-img" %>
+            <%= image_tag_with_default @articles.first.title_image, class: "card-img-top art-img hover-img", style: "border-top-left-radius: 15px; border-top-right-radius: 15px;" %>
             <% end %>
-            <div class="card-body">
+            <div class="card-body" style="border-radius: 15px;">
                 <div><%= @articles.first.created_at.strftime("%Y/%m/%d") %></div>
                 <h2>
                     <%= link_to @articles.first.title, "/articles/#{@articles.first.id}"  %>
@@ -28,9 +35,9 @@
     <% @articles.each_with_index do |ar, i| %>
     <% if i != 0 %>
     <div class="col mb-4 rounded">
-        <div class="card h-100">
+        <div class="card h-100" style="border-radius: 15px;">
             <%= link_to "/articles/#{ar.id}" do %>
-            <%= image_tag_with_default ar.title_image, class: "card-img-top art-img hover-img" %>
+            <%= image_tag_with_default ar.title_image, class: "card-img-top art-img hover-img", style: "border-top-left-radius: 15px; border-top-right-radius: 15px;" %>
             <% end %>
             <div class="card-body">
                 <div><%= ar.created_at.strftime("%Y/%m/%d") %></div>
