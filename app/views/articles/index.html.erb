@@ -20,7 +20,24 @@
             <%= image_tag_with_default @articles.first.title_image, class: "card-img-top art-img hover-img", style: "border-top-left-radius: 15px; border-top-right-radius: 15px;" %>
             <% end %>
             <div class="card-body" style="border-radius: 15px;">
-                <div><%= @articles.first.created_at.strftime("%Y/%m/%d") %></div>
+                <div class="row">
+                    <h5 class="ml-3 mt-1 mr-4"><%= @articles.first.created_at.strftime("%Y/%m/%d") %></h5>
+                    <% @articles.first.areas.each do |area| %>
+                    <h4>
+                        <%= link_to "/articles/pages/1?area=#{area.id}", { class: "badge badge-info m-1" } do %>
+                        <%= area.name %>
+                        <% end %>
+                    </h4>
+                    <% end %>
+                    <% @articles.first.categorys.each do |category| %>
+                    <h4>
+                        <%= link_to "/articles/pages/1?category=#{category.id}", { class: "badge badge-success m-1" } do %>
+                        <%= category.name %>
+                        <% end %>
+                    </h4>
+                    <% end %>
+                </div>
+
                 <h2>
                     <%= link_to @articles.first.title, "/articles/#{@articles.first.id}"  %>
                 </h2>
@@ -40,11 +57,27 @@
             <%= image_tag_with_default ar.title_image, class: "card-img-top art-img hover-img", style: "border-top-left-radius: 15px; border-top-right-radius: 15px;" %>
             <% end %>
             <div class="card-body">
-                <div><%= ar.created_at.strftime("%Y/%m/%d") %></div>
+                <div class="row">
+                    <p class="ml-3 mt-1 mr-4"><%= ar.created_at.strftime("%Y/%m/%d") %></p>
+                    <% ar.areas.each do |area| %>
+                    <h5>
+                        <%= link_to "/articles/pages/1?area=#{area.id}", { class: "badge badge-info m-1" } do %>
+                        <%= area.name %>
+                        <% end %>
+                    </h5>
+                    <% end %>
+                    <% ar.categorys.each do |category| %>
+                    <h5>
+                        <%= link_to "/articles/pages/1?category=#{category.id}", { class: "badge badge-success m-1" } do %>
+                        <%= category.name %>
+                        <% end %>
+                    </h5>
+                    <% end %>
+                </div>
                 <h4>
                     <%= link_to ar.title , "/articles/#{ar.id}" %>
                 </h4>
-                <h5 class="card-text"><%= ar.sub_title %></h5>
+                <h5 class=" card-text"><%= ar.sub_title %></h5>
             </div>
         </div>
     </div>
