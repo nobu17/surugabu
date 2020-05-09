@@ -9,6 +9,6 @@ class Category < ApplicationRecord
   validates :name, length: { minimum: 1, maximum: 10, too_long: '最大%{count}文字まで使えます' }
 
   scope :get_categorys_orderby_display_order, lambda {
-    all.order(display_order: :desc)
+    all.order(display_order: :asc)
   }
 end
