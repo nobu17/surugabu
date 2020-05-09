@@ -21,7 +21,7 @@ class Article < ApplicationRecord
 
   def title_image_thumbnail
     if title_image.attached?
-      title_image.variant(resize_to_fill: [400, 400]).processed
+      title_image.variant(resize_to_fill: [200, 200]).processed
     end
   end
 
