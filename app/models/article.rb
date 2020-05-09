@@ -50,4 +50,11 @@ class Article < ApplicationRecord
       .paginate(page: page, per_page: ITEM_NUMER_OF_PAGE)
       .order(created_at: :desc)
   }
+  scope :search_areas_categorys, lambda { |area_ids, category_ids, self_id|
+    joins(:areas, :categorys)
+      .where('(categories.id IN (?)) OR (areas.id IN (?))', category_ids, area_ids)
+      .where.not(id: self_id)
+      .order(created_at: :desc)
+      .limit(5)
+  }
 end
