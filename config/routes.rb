@@ -27,4 +27,12 @@ Rails.application.routes.draw do
   get 'admin/article_edit/:id/edit', to: 'article_edit#edit'
   get 'admin/article_edit/new', to: 'article_edit#new'
   post 'adamin/article_edit/attach/', to: 'article_edit#attach'
+
+  get 'admin/area/', to: 'area#index'
+  post 'admin/area/', to: 'area#create'
+  put 'admin/area/:id', to: 'area#update'
+  patch 'admin/area/:id', to: 'area#update'
+  delete 'admin/area/:id', to: 'area#destroy'
+  get 'admin/area/:id/edit', to: 'area#edit'
+  get 'admin/area/new', to: 'area#new'
 end

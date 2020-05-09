@@ -1,0 +1,35 @@
+<%= link_to '戻る', "/admin/", class: "btn btn-raised btn-danger col-md-4" %>
+<div class="mx-auto" style="width: 300px;">
+    <h1>地域タグ一覧</h1>
+</div>
+<div class="row">
+    <a class="btn btn-raised btn-primary col-md-12" href="/admin/area/new" role="button">新規作成</a>
+</div>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">ID</th>
+            <th scope="col">表示順序</th>
+            <th scope="col">名称</th>
+            <th scope="col">投稿日</th>
+            <th scope="col">更新日</th>
+            <th scope="col">#</th>
+        </tr>
+    </thead>
+    <tbody>
+        <% @areas.each do |area| %>
+        <tr>
+            <td><%= area.id %></td>
+            <td><%= area.display_order %></td>
+            <td><%= area.name %></td>
+            <td><%= area.created_at.strftime("%Y/%m/%d %H:%M") %></td>
+            <td><%= area.updated_at.strftime("%Y/%m/%d %H:%M") %></td>
+            <td>
+                <%= link_to '編集', "/admin/area/#{area.id}/edit" %>
+                <%= link_to '削除', "/admin/area/#{area.id}", method: :delete, data: { confirm: 'Are you sure?' } %>
+            </td>
+        </tr>
+        <% end %>
+    </tbody>
+</table>
