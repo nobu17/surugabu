@@ -30,7 +30,6 @@ module ArticleActions
   def set_article
     # @article = Article.includes(:areas, :categorys).where(id: params[:id]).first
     @article = Article.search_article_by_id(params[:id])
-    puts @article.inspect
     if @article.nil?
       puts 'no existed'
     else
@@ -39,7 +38,6 @@ module ArticleActions
       @categorys = @article.categorys
       # puts @categorys.inspect
     end
-    puts 'article:!!!!!!!!' + @article.inspect
     # @article = Article.find_by(id: params[:id], include: %i[areas categorys])
   end
 
