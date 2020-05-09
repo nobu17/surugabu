@@ -1,7 +1,10 @@
 <%= javascript_pack_tag 'article/application' %>
 
+<%= render partial: "layouts/breadcrumb", locals: { area: @areas.first } %>
+
 <div class="row">
-    <div class="card mb-3 col-md-9 mx-auto col-xs-12">
+    <div class="card mb-3 col-12 col-md-9 mx-auto">
+
         <div class="card-body">
             <% if user_signed_in? %>
             <div class="row m-1">
@@ -29,7 +32,7 @@
                 </h4>
                 <% end %>
             </div>
-            <%= image_tag_with_default @article.title_image, class: "card-img-top mb-3" %>
+            <%= image_tag_with_default @article.title_image_compressed, class: "card-img-top mb-3" %>
             <div id="actual_content" class="art-p mt-2 d-flex justify-content-center">
                 <div class="dots-loader mt-4">
                 </div>

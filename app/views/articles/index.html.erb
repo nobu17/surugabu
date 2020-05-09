@@ -17,7 +17,7 @@
     <div class="col mb-4">
         <div class="card border-primary h-100" style="border-radius: 15px;">
             <%= link_to "/articles/#{@articles.first.id}" do %>
-            <%= image_tag_with_default @articles.first.title_image, class: "card-img-top art-img hover-img", style: "border-top-left-radius: 15px; border-top-right-radius: 15px;" %>
+            <%= image_tag_with_default @articles.first.title_image_compressed, class: "card-img-top art-img hover-img", style: "border-top-left-radius: 15px; border-top-right-radius: 15px;" %>
             <% end %>
             <div class="card-body" style="border-radius: 15px;">
                 <div class="row">
@@ -54,7 +54,7 @@
     <div class="col mb-4 rounded">
         <div class="card h-100" style="border-radius: 15px;">
             <%= link_to "/articles/#{ar.id}" do %>
-            <%= image_tag_with_default ar.title_image, class: "card-img-top art-img hover-img", style: "border-top-left-radius: 15px; border-top-right-radius: 15px;" %>
+            <%= image_tag_with_default ar.title_image_compressed, class: "card-img-top art-img hover-img", style: "border-top-left-radius: 15px; border-top-right-radius: 15px;" %>
             <% end %>
             <div class="card-body">
                 <div class="row">

@@ -25,6 +25,12 @@ class Article < ApplicationRecord
     end
   end
 
+  def title_image_compressed
+    if title_image.attached?
+      title_image.variant(resize_to_fill: [680, 480]).processed
+    end
+  end
+
   scope :search_article_by_id, lambda { |article_id|
     includes(:areas, :categorys).where(id: article_id).first
   }
