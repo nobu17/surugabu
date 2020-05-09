@@ -35,4 +35,12 @@ Rails.application.routes.draw do
   delete 'admin/area/:id', to: 'area#destroy'
   get 'admin/area/:id/edit', to: 'area#edit'
   get 'admin/area/new', to: 'area#new'
+
+  get 'admin/category/', to: 'category#index'
+  post 'admin/category/', to: 'category#create'
+  put 'admin/category/:id', to: 'category#update'
+  patch 'admin/category/:id', to: 'category#update'
+  delete 'admin/category/:id', to: 'category#destroy'
+  get 'admin/category/:id/edit', to: 'category#edit'
+  get 'admin/category/new', to: 'category#new'
 end
