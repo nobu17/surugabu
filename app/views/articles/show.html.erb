@@ -74,27 +74,11 @@
 </div>
 <% end %>
 
-<% @related_articles.each do |related_article| %>
 <div class="row">
-    <a href="/articles/<%= related_article.id %>" class="card card-hover mb-3 col-md-9 mx-auto col-xs-12">
-        <div class="row no-gutters">
-            <div class="col-md-5">
-                <%= image_tag_with_default related_article.title_image, class:"card-img art-img h-100 hover-img" %>
-            </div>
-            <div class=" col-md-7">
-                <div class="card-body" style="border-radius: 15px;">
-                    <h5 class="card-title">
-                        <%= related_article.title %>
-                    </h5>
-                    <p class="card-text">
-                        <%= related_article.sub_title %>
-                    </p>
-                </div>
-            </div>
-        </div>
-    </a>
+    <div class="col-12 col-md-9 mt-2 mx-auto">
+        <%= render partial: "layouts/article_small", collection: @related_articles, :as => "article" %>
+    </div>
 </div>
-<% end %>
 
 <div id="article_content" style="display:none">
     <%= @article.content %>

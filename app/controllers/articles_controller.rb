@@ -10,8 +10,7 @@ class ArticlesController < ApplicationController
   # GET /article/pages/:page
   # GET /article/pages/:page?area=x&category=y
   def index
-    puts @articles.inspect
-    # end
+    # puts @articles.inspect
   end
 
   # GET /article/1

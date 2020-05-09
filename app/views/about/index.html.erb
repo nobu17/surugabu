@@ -1,0 +1,33 @@
+<div class="row">
+    <div class="card mb-3 col-md-9 mx-auto col-xs-12">
+        <div class="card-body">
+            <h3>
+                <img src="/assets/maguro.svg" width="30" height="30" class="d-inline-block align-top mr-1" alt="">
+                SURUGA-BUとは
+            </h3>
+            <%= image_tag_with_default "about.jpg", class: "card-img-top mb-3" %>
+            <div id="actual_content" class="art-p mt-2">
+                <p>
+                    SURUGA-BU(するがぶ)は「静岡県東部(三島市,沼津市,伊豆など)」を中心に紹介するメディアです。
+                    <br />
+                    美味しいお店や観光スポットなど、静岡県東部に住む人や観光にくる人にとって参考となる情報を提供します。
+                    <br />
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<% if @articles.present? %>
+<div class="row">
+    <div class="col-12 col-md-9 mt-2 mx-auto">
+        <h5>最新記事</h5>
+    </div>
+</div>
+<% end %>
+
+<div class="row">
+    <div class="col-12 col-md-9 mt-2 mx-auto">
+        <%= render partial: "layouts/article_small", collection: @articles, :as => "article" %>
+    </div>
+</div>

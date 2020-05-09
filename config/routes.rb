@@ -15,6 +15,8 @@ Rails.application.routes.draw do
   get 'articles/pages/:page', to: 'articles#index'
   get 'articles/:id', to: 'articles#show'
 
+  get 'about/', to: 'about#index'
+
   get 'admin/', to: 'admin#index'
 
   get 'admin/article_edit/', to: 'article_edit#index'

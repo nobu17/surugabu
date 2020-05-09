@@ -1,0 +1,19 @@
+<div class="row">
+    <a href="/articles/<%= article.id %>" class="card card-hover mt-2">
+        <div class="row no-gutters">
+            <div class="col-md-5">
+                <%= image_tag_with_default article.title_image, class:"card-img art-img2 h-100 hover-img card-hover" %>
+            </div>
+            <div class=" col-md-7">
+                <div class="card-body" style="border-radius: 15px;">
+                    <h5 class="card-title">
+                        <%= article.title %>
+                    </h5>
+                    <p class="card-text">
+                        <%= article.sub_title %>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </a>
+</div>
