@@ -3,6 +3,11 @@
 <div class="row">
     <div class="card mb-3 center-block col-md-9 mx-auto col-xs-12">
         <div class="card-body">
+            <% if user_signed_in? %>
+            <div class="row m-1">
+                <%= link_to '編集', "/admin/article_edit/#{@article.id}/edit", { class: "btn btn-raised btn-primary col-md-12" } %>
+            </div>
+            <% end %>
             <h6 class="card-subtitle mb-2 text-muted" style="text-align:right;">作成日: <%= @article.created_at.strftime("%Y/%m/%d") %>　最終更新日: <%= @article.updated_at.strftime("%Y/%m/%d") %></h6>
             <h3>
                 <%= @article.title %>

@@ -47,11 +47,12 @@
                 </li>
 
                 <% if user_signed_in? %>
-                <li class="nav-item">
-                    <%= link_to "管理ページ", "/admin", { class: "nav-link" } %>
-                </li>
-                <li class="nav-item">
-                    <%= link_to "ログアウト", destroy_user_session_path, { method: :delete, class: "nav-link" } %>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">管理メニュー</a>
+                    <div class="dropdown-menu">
+                        <%= link_to "管理ページ", "/admin", { class: "dropdown-item" } %>
+                        <%= link_to "ログアウト", destroy_user_session_path, { method: :delete, class: "dropdown-item" } %>
+                    </div>
                 </li>
                 <% end %>
             </ul>
