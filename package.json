@@ -10,6 +10,7 @@
     "bootstrap-material-design": "^4.1.2",
     "css-spinners": "jlong/css-spinners",
     "github-markdown-css": "^4.0.0",
+    "inline-attachment": "^2.0.3",
     "jquery": "3.4.1",
     "marked": "^1.0.0",
     "popper.js": "^1.16.1",

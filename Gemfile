@@ -66,3 +66,4 @@ gem 'devise'
 
 # jquery
 gem 'jquery-rails'
+

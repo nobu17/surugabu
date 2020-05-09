@@ -24,4 +24,5 @@ Rails.application.routes.draw do
   delete 'admin/article_edit/:id', to: 'article_edit#destroy'
   get 'admin/article_edit/:id/edit', to: 'article_edit#edit'
   get 'admin/article_edit/new', to: 'article_edit#new'
+  post 'adamin/article_edit/attach/', to: 'article_edit#attach'
 end
