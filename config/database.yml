@@ -20,20 +20,28 @@ default: &default
   # For details on connection pooling, see Rails configuration guide
   # https://guides.rubyonrails.org/configuring.html#database-pooling
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+
+
+development:
+  <<: *default
+  database: dev_suruga_db
   username: test
   password: password
   host: localhost
   port: 15432
 
-development:
-  <<: *default
-  database: dev_suruga_db
-
 test:
   <<: *default
   database: test_suruga_db
+  username: test
+  password: password
+  host: localhost
+  port: 15432
 
 production:
   <<: *default
-  database: prod_suruga_db
+  # database: prod_suruga_db
   url: <%= ENV['DATABASE_URL'] %>
+  port: 5432
+  # username: <%= ENV['DATABASE_USER'] %>
+  # password: <%= ENV['DATABASE_PASSWORD'] %>
