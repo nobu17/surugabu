@@ -69,3 +69,6 @@ gem 'jquery-rails'
 
 # for env
 gem 'dotenv-rails'
+
+# for gcs
+gem "google-cloud-storage"
