@@ -5,3 +5,7 @@ Area.create(name: '沼津(全般)')
 
 Category.create(name: 'グルメ')
 Category.create(name: '観光')
+
+
+user = User.new(:email => ENV['ADMIN_USER'], :password => ENV['ADMIN_PASSWORD'])
+user.save!
