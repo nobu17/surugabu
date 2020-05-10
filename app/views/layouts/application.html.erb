@@ -3,6 +3,7 @@
 
 <head>
     <title>SurugabuApp</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
@@ -13,12 +14,12 @@
 
 <body>
     <nav class="navbar navbar-expand-lg navbar-light fixed-top" style="background-color: #e3f2fd;">
-        <a class="navbar-brand ml-5" href="/" style="letter-spacing: 0.05em;">
+        <a class="navbar-brand ml-md-5 ml-sm-1" href="/" style="letter-spacing: 0.05em;">
             <img src="/assets/maguro.svg" width="30" height="30" class="d-inline-block align-top" alt="">
             SURUGA-BU
         </a>
-        <div class="navbar-brand sub-title">
-            静岡県(東部)のスポット紹介メディア
+        <div class="navbar-brand sub-title d-none d-md-block">
+            静岡県(東部)の紹介メディア
         </div>
         <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#Navber" aria-controls="Navber" aria-expanded="false" aria-label="">
             <span class="navbar-toggler-icon"></span>
