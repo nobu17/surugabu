@@ -67,3 +67,5 @@ gem 'devise'
 # jquery
 gem 'jquery-rails'
 
+# for env
+gem 'dotenv-rails'
