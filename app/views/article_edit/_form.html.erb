@@ -1,3 +1,4 @@
+<%= stylesheet_pack_tag 'article_edit/application', media: 'all' %>
 <%= javascript_pack_tag 'article_edit/application' %>
 
 <%= form_with(model: article, url: admin_article_edit_path + "/" + article.id.to_s, local: true) do |form| %>

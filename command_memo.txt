@@ -1,0 +1,10 @@
+
+heroku pg:reset -a suruga-bu  
+heroku run rails db:migrate RAILS_ENV=production
+heroku run rails db:seed RAILS_ENV=production
+
+heroku restart --app suruga-bu
+
+# for checking detail 
+heroku logs --tail
+heroku run rails c
