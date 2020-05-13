@@ -24,7 +24,7 @@ google:
     project_id: <%= ENV['GCS_PROJECT_ID'] %>
     private_key_id: <%= ENV['GCS_PK_ID'] %>
     # private_key: <%= ENV['GCS_PK'].dump %>
-    private_key: <%= ENV['GCS_PK'].gsub("\\n", "\n") %>
+    private_key: <%= ENV['GCS_PK'].dump %>
     client_email: <%= ENV['GCS_EMAIL'] %>
     client_id: <%= ENV['GCS_CLIENT_ID'] %>
     auth_uri: "https://accounts.google.com/o/oauth2/auth"
