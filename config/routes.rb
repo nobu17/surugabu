@@ -17,6 +17,8 @@ Rails.application.routes.draw do
 
   get 'about/', to: 'about#index'
 
+  get 'contact/', to: 'contact#index'
+
   get 'admin/', to: 'admin#index'
 
   get 'admin/article_edit/', to: 'article_edit#index'
