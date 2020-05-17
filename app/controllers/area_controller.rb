@@ -21,6 +21,7 @@ class AreaController < ApplicationController
   def create
     @area = Area.new(area_params)
     if @area.save
+      Area.clear_cache
       redirect_to '/admin/area', notice: 'Area was successfully created.'
     else
       render :new
@@ -30,6 +31,7 @@ class AreaController < ApplicationController
   # PATCH/PUT admin/area/1
   def update
     if @area.update(area_params)
+      Area.clear_cache
       redirect_to '/admin/area', notice: 'Area was successfully updated.'
     else
       render :edit

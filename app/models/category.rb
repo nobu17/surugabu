@@ -11,4 +11,16 @@ class Category < ApplicationRecord
   scope :get_categorys_orderby_display_order, lambda {
     all.order(display_order: :asc)
   }
+
+  def self.clear_cache
+    Rails.cache.delete('cache_categorys')
+  end
+
+  def self.cached_all_categorys
+    Rails.cache.fetch('cache_categorys', expired_in: 60.minutes) do
+      # Area.all
+      Category.all.order(display_order: :asc).to_a
+    end
+  end
+
 end

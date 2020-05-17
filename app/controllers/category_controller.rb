@@ -21,6 +21,7 @@ class CategoryController < ApplicationController
   def create
     @category = Category.new(category_params)
     if @category.save
+      Category.clear_cache
       redirect_to '/admin/category', notice: 'category was successfully created.'
     else
       render :new
@@ -30,6 +31,7 @@ class CategoryController < ApplicationController
   # PATCH/PUT admin/area/1
   def update
     if @category.update(category_params)
+      Category.clear_cache
       redirect_to '/admin/category', notice: 'category was successfully updated.'
     else
       render :edit

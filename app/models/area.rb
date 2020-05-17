@@ -11,4 +11,16 @@ class Area < ApplicationRecord
   scope :get_areas_orderby_display_order, lambda {
     all.order(display_order: :asc)
   }
+
+  def self.clear_cache
+    Rails.cache.delete('cache_areas')
+  end
+
+  def self.cached_all_areas
+    Rails.cache.fetch('cache_areas', expired_in: 60.minutes) do
+      # Area.all
+      Area.all.order(display_order: :asc).to_a
+    end
+  end
+
 end
