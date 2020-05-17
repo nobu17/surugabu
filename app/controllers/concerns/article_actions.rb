@@ -20,10 +20,10 @@ module ArticleActions
                 else
                   Article.search_by_page(params[:page])
                 end
+  end
 
-    # @articles = Article.search_area_category_by_page(1, 1, params[:page])
-    # puts @articles.inspect
-    # end
+  def set_edit_articles
+    @articles = Article.search_edit_article_by_page(params[:page])
   end
 
   # Use callbacks to share common setup or constraints between actions.

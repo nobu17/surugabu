@@ -89,6 +89,17 @@
     <hr class="col md-12">
 </div>
 
+<div class="field form-check">
+    <%= form.check_box :status, { class:"form-check-input", id:"check-status" }, "draft", "open" %>
+    <label class="form-check-label" for="check-status">
+        下書き
+    </label>
+</div>
+
+<div class="row">
+    <hr class="col md-12">
+</div>
+
 
 <div class="actions btn-group d-flex">
     <%= form.submit "確定", { class: "btn btn-raised btn-primary w-80 mr-2" } %>
