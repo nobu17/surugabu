@@ -41,7 +41,7 @@ test:
 production:
   <<: *default
   # database: prod_suruga_db
-  url: <%= ENV['DATABASE_URL'] %>
+  url: <%= ENV['PROD_DATABASE_URL'] %>
   port: 5432
   # username: <%= ENV['DATABASE_USER'] %>
   # password: <%= ENV['DATABASE_PASSWORD'] %>
