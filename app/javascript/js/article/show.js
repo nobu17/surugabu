@@ -5,7 +5,15 @@ window.onload = function () {
 };
 
 function loadMD() {
-  marked.setOptions({ breaks: true });
+  const renderer = new marked.Renderer();
+  marked.setOptions({ breaks: true, renderer: renderer });
+  renderer.image = function (href, title, text) {
+    if (href === null) {
+      return text;
+    }
+    // FIXME: title, text
+    return ` <div align="center"><img src="${href}" loading="lazy"></div>`;
+  };
   const area = document.getElementById("article_content");
   if (area) {
     const str = marked(area.innerText);
