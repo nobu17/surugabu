@@ -48,7 +48,7 @@ class ArticleEditController < ApplicationController
   # POST adamin/article_edit/attach
   def attach
     attachment = Attachment.create! image: ajax_params
-    render json: { filename: url_for(attachment.image) }
+    render json: { filename: url_for(attachment.image_compressed) }
   end
 
   private

@@ -13,13 +13,17 @@ function loadMDE() {
   if (!simplemde && editor) {
     simplemde = new SimpleMDE({
       element: editor,
-      spellChecker: false
+      spellChecker: false,
     });
     inlineAttachment.editors.codemirror4.attach(simplemde.codemirror, {
       uploadUrl: "/adamin/article_edit/attach", // POSTする宛先Url
       uploadFieldName: "image", // ファイルのフィールド名(paramsで取り出す時のkey)
       allowedTypes: ["image/jpeg", "image/png", "image/jpg", "image/gif"],
       extraHeaders: { "X-CSRF-Token": Rails.csrfToken() }, // CSRF対策
+      onFileUploadError: (response) => {
+        alert("ファイルアップロード失敗。");
+        console.log(response);
+      },
     });
   }
 }
