@@ -72,3 +72,7 @@ gem 'dotenv-rails'
 
 # for gcs
 gem "google-cloud-storage"
+
+# for SEO meta-tag
+gem 'meta-tags'
+

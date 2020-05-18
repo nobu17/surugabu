@@ -1,3 +1,4 @@
+<% set_meta_tags title: @article.title, description: @article.sub_title, og: { title: @article.title, type: 'article', image: @article.title_image_compressed } %>
 <%= javascript_pack_tag 'article/application' %>
 
 <%= render partial: "layouts/breadcrumb", locals: { area: @areas.first } %>
