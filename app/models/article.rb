@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class Article < ApplicationRecord
-  ITEM_NUMER_OF_PAGE = 9
+  ITEM_NUMER_OF_PAGE = 10
 
   enum status: { open: 0, draft: 1 }
 
