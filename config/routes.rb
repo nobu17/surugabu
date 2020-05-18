@@ -45,6 +45,7 @@ Rails.application.routes.draw do
   get 'admin/category/:id/edit', to: 'category#edit'
   get 'admin/category/new', to: 'category#new'
 
+  devise_for :users, skip: :all
   devise_scope :user do
     get '/users/sign_in' => 'devise/sessions#new', as: :new_user_session
     post '/users/sign_in' => 'devise/sessions#create', as: :user_session
