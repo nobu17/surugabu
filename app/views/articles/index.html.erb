@@ -12,45 +12,10 @@
     </h4>
 </div>
 <% end %>
-<% if @articles.length > 0 %>
-<div class="row">
-    <div class="col mb-4">
-        <div class="card border-primary h-100" style="border-radius: 15px;">
-            <%= link_to "/articles/#{@articles.first.id}" do %>
-            <%= image_tag_with_default @articles.first.title_image_compressed, class: "card-img-top art-img hover-img", style: "border-top-left-radius: 15px; border-top-right-radius: 15px;" %>
-            <% end %>
-            <div class="card-body" style="border-radius: 15px;">
-                <div class="row">
-                    <h5 class="ml-3 mt-1 mr-4"><%= @articles.first.created_at.strftime("%Y/%m/%d") %></h5>
-                    <% @articles.first.areas.each do |area| %>
-                    <h4>
-                        <%= link_to "/articles/pages/1?area=#{area.id}", { class: "badge badge-info m-1" } do %>
-                        <%= area.name %>
-                        <% end %>
-                    </h4>
-                    <% end %>
-                    <% @articles.first.categorys.each do |category| %>
-                    <h4>
-                        <%= link_to "/articles/pages/1?category=#{category.id}", { class: "badge badge-success m-1" } do %>
-                        <%= category.name %>
-                        <% end %>
-                    </h4>
-                    <% end %>
-                </div>
 
-                <h2>
-                    <%= link_to @articles.first.title, "/articles/#{@articles.first.id}"  %>
-                </h2>
-                <h4 class="card-text"><%= @articles.first.sub_title %></h4>
-            </div>
-        </div>
-    </div>
-</div>
-<% end %>
 
 <div class="row row-cols-1 row-cols-md-2">
     <% @articles.each_with_index do |ar, i| %>
-    <% if i != 0 %>
     <div class="col mb-4 rounded">
         <div class="card h-100" style="border-radius: 15px;">
             <%= link_to "/articles/#{ar.id}" do %>
@@ -81,8 +46,6 @@
             </div>
         </div>
     </div>
-    <% else %>
-    <% end %>
     <% end %>
 </div>
 <div class="mx-auto" style="width: 300px;">
