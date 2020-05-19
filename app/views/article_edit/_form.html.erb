@@ -69,6 +69,14 @@
     <div id="cont_area"></div>
 </div>
 
+<div class="actions btn-group d-flex">
+    <button id="preview-button" type="button" class="btn btn-primary btn-raised w-80 ml-2" onclick="previewMarkdown()" data-toggle="modal" data-target="#modal1">
+        プレビュー
+    </button>
+</div>
+
+
+
 <!-- 
 <div class="row">
     <hr class="col md-12">
@@ -108,3 +116,18 @@
 </div>
 
 <% end %>
+
+<div class="modal fade" id="modal1" tabindex="-1" role="dialog" aria-labelledby="label1" aria-hidden="true">
+    <div class="modal-dialog modal-xl" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div id="preview_area"></div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,11 +1,13 @@
 import SimpleMDE from "simplemde";
 import Rails from "@rails/ujs";
+import marked from "marked";
 
 let simplemde;
 
 window.onload = function () {
   loadMDE();
   addImagePreviewEvent();
+  loadPreview();
 };
 
 function loadMDE() {
@@ -64,4 +66,30 @@ function addImagePreviewEvent() {
     reader.readAsDataURL(imageFile);
     return def.promise();
   };
+}
+
+
+function loadPreview() {
+  document.getElementById("preview-button").onclick = function(){
+    previewMarkdown();
+  }
+}
+
+function previewMarkdown() {
+  const renderer = new marked.Renderer();
+  marked.setOptions({ breaks: true, renderer: renderer });
+  renderer.image = function (href, title, text) {
+    if (href === null) {
+      return text;
+    }
+    // FIXME: title, text
+    return ` <div align="center"><img src="${href}" loading="lazy"></div>`;
+  };
+  const markDown = simplemde.value();
+  const displayArea = document.getElementById("preview_area");
+  if (displayArea) {
+    const str = marked(markDown);
+    displayArea.setAttribute("class", "art-p mt-2 markdown-body");
+    displayArea.innerHTML = str;
+  }
 }
