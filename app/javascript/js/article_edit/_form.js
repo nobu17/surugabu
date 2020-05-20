@@ -7,7 +7,7 @@ let simplemde;
 window.onload = function () {
   loadMDE();
   addImagePreviewEvent();
-  loadPreview();
+  loadButtonEvents();
 };
 
 function loadMDE() {
@@ -68,11 +68,13 @@ function addImagePreviewEvent() {
   };
 }
 
-
-function loadPreview() {
-  document.getElementById("preview-button").onclick = function(){
+function loadButtonEvents() {
+  document.getElementById("preview-button").onclick = function () {
     previewMarkdown();
-  }
+  };
+  document.getElementById("template-button").onclick = function () {
+    addTemplateMarkdown();
+  };
 }
 
 function previewMarkdown() {
@@ -92,4 +94,16 @@ function previewMarkdown() {
     displayArea.setAttribute("class", "art-p mt-2 markdown-body");
     displayArea.innerHTML = str;
   }
+}
+
+function addTemplateMarkdown() {
+  const templateValue =
+    "\\n# 説明\\n\\n# 情報\\n|タイトル|内容|\\n|---|---|\\n|名称|hoge|\\n|時間|8:30 ~ 18:00|\\n|駐車場|あり（9台）|\\n|休日|木曜日|\\n";
+  let currentValue = simplemde.value();
+  simplemde.value(currentValue + replaceNewLine(templateValue));
+}
+
+function replaceNewLine(input) {
+  const newline = String.fromCharCode(13, 10);
+  return input.split("\\n").join(newline);
 }
