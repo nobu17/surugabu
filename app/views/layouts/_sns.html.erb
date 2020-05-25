@@ -5,10 +5,12 @@
 
 <ul class="snsButtons">
     <li class="snsButtons_twitter">
-        <a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="text-white">ツイート</a></li>
+        <a href="https://twitter.com/share?url=<%= url_for(only_path: false) %>" class="text-white">ツイート</a>
+    </li>
     <li class="snsButtons_facebook">
-        <a class="text-white" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fsurugabu.com%2F&amp;src=sdkpreparse">
+        <a rel="nofollow" target="_blank" class="text-white" href="http://www.facebook.com/share.php?u=<%= url_for(only_path: false) %>">
             <!-- ここに表示する要素を配置 -->
             シェア
-        </a></li>
+        </a>
+    </li>
 </ul>
