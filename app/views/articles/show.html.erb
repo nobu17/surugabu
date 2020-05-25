@@ -33,6 +33,7 @@
                 </h4>
                 <% end %>
             </div>
+            <%= render partial: "layouts/sns" %>
             <%= image_tag_with_default @article.title_image_compressed, class: "card-img-top mb-3" %>
             <div id="actual_content" class="art-p mt-2 d-flex justify-content-center">
                 <div class="dots-loader mt-4">
@@ -66,9 +67,13 @@
                 <% end %>
 
             </div>
+
+            <%= render partial: "layouts/sns" %>
         </div>
     </div>
+
 </div>
+
 
 <% if @related_articles.present? %>
 <div class="row">
