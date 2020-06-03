@@ -80,3 +80,5 @@ gem 'meta-tags'
 gem 'mongoid'
 gem 'bson_ext' # accelerate BSON serialization
 
+# for sitemap
+gem 'sitemap_generator'
