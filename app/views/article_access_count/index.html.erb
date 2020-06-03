@@ -1,0 +1,22 @@
+<%= link_to '戻る', "/admin/", class: "btn btn-raised btn-danger col-md-4" %>
+<div class="mx-auto" style="width: 300px;">
+    <h1>アクセス数</h1>
+</div>
+
+
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">ID</th>
+            <th scope="col">アクセス数</th>
+        </tr>
+    </thead>
+    <tbody>
+        <% @articles.each do |article| %>
+        <tr>
+            <td><%= article.article_id %></td>
+            <td><%= article.access_count %></td>
+        </tr>
+        <% end %>
+    </tbody>
+</table>

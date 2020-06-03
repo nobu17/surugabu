@@ -76,3 +76,7 @@ gem "google-cloud-storage"
 # for SEO meta-tag
 gem 'meta-tags'
 
+# for mongodb
+gem 'mongoid'
+gem 'bson_ext' # accelerate BSON serialization
+

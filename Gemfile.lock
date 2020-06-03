@@ -64,6 +64,8 @@ GEM
       msgpack (~> 1.0)
     bootstrap-will_paginate (1.0.0)
       will_paginate
+    bson (4.8.2)
+    bson_ext (1.5.1)
     builder (3.2.4)
     byebug (11.1.3)
     capybara (3.32.1)
@@ -157,6 +159,11 @@ GEM
     mini_mime (1.0.2)
     mini_portile2 (2.4.0)
     minitest (5.14.0)
+    mongo (2.12.1)
+      bson (>= 4.8.2, < 5.0.0)
+    mongoid (7.1.1)
+      activemodel (>= 5.1, < 6.1)
+      mongo (>= 2.7.0, < 3.0.0)
     msgpack (1.3.3)
     multi_json (1.14.1)
     multipart-post (2.1.1)
@@ -282,6 +289,7 @@ PLATFORMS
 DEPENDENCIES
   bootsnap (>= 1.4.2)
   bootstrap-will_paginate
+  bson_ext
   byebug
   capybara (>= 2.15)
   devise
@@ -292,6 +300,7 @@ DEPENDENCIES
   jquery-rails
   listen (>= 3.0.5, < 3.2)
   meta-tags
+  mongoid
   pg (>= 0.18, < 2.0)
   puma (~> 4.1)
   rails (~> 6.0.2, >= 6.0.2.2)

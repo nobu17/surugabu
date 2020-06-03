@@ -17,3 +17,11 @@ heroku config:set GOOGLE_CREDENTIALS="$(< GCS.json)"
 
 # connect redit
 heroku redis:cli
+
+
+
+# generate model for mongodb
+rails generate mongoid:model
+
+# connect mongo(root is username)
+mongo -u root
