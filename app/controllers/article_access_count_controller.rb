@@ -16,11 +16,4 @@ class ArticleAccessCountController < ApplicationController
     # render nothing: true, status: 200
     render json: {}
   end
-
-  private
-
-  # Only allow a list of trusted parameters through.
-  def arcile_params
-    params.permit(:article_id)
-  end
 end
