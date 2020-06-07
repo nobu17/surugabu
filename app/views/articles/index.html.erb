@@ -23,10 +23,9 @@
             <% end %>
             <div class="card-body">
                 <div class="row">
-                    <p class="ml-3 mt-1 mr-4"><%= ar.created_at.strftime("%Y/%m/%d") %></p>
                     <% ar.areas.each do |area| %>
                     <h5>
-                        <%= link_to "/articles/pages/1?area=#{area.id}", { class: "badge badge-info m-1" } do %>
+                        <%= link_to "/articles/pages/1?area=#{area.id}", { class: "badge badge-info m-1 ml-2" } do %>
                         <%= area.name %>
                         <% end %>
                     </h5>
@@ -43,6 +42,17 @@
                     <%= link_to ar.title , "/articles/#{ar.id}" %>
                 </h4>
                 <h5 class=" card-text"><%= ar.sub_title %></h5>
+
+                <div class="row float-right">
+                    <ion-icon class="ml-2 mt-2" name="settings"></ion-icon>
+                    <div class="display:inline-block;">
+                        <p class="ml-1 mt-1 mr-1"><%= ar.updated_at.strftime("%Y/%m/%d") %></p>
+                    </div>
+                    <ion-icon class="ml-2 mt-2" name="time"></ion-icon>
+                    <div class="display:inline-block;">
+                        <p class="ml-1 mt-1 mr-4"><%= ar.created_at.strftime("%Y/%m/%d") %></p>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
