@@ -12,13 +12,13 @@ function loadButtonEvents() {
 }
 
 function openTwitter(article_id) {
-  const tag = "駿河部,沼津";
+  const tag = "駿河部,沼津市,富士市";
   const my_url = "https://" + window.location.host + "/articles/" + article_id;
-  const comment = "記事を投稿しました。 " + my_url;
+  const comment = "記事を投稿しました。 ";
 
   url =
     "http://twitter.com/share?url=" +
-    escape(document.location.href) +
+    escape(my_url) +
     "&text=" +
     comment +
     "&hashtags=" +
