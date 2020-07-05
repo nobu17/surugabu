@@ -98,7 +98,7 @@ function previewMarkdown() {
 
 function addTemplateMarkdown() {
   const templateValue =
-    "\\n# 説明\\n\\n# 情報\\n|タイトル|内容|\\n|---|---|\\n|名称|hoge|\\n|時間|8:30 ~ 18:00|\\n|駐車場|あり（9台）|\\n|休日|木曜日|\\n|住所|hoge|\\n";
+    "\\n# 説明\\n\\n# 情報\\n|タイトル|内容|\\n|---|---|\\n|名称|hoge|\\n|住所|hoge|\\n|時間|8:30 ~ 18:00|\\n|駐車場|あり（9台）|\\n|休日|木曜日|\\n|HP|hoge|\\n";
   let currentValue = simplemde.value();
   simplemde.value(currentValue + replaceNewLine(templateValue));
 }
