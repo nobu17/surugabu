@@ -13,7 +13,23 @@ module ApplicationHelper
       separator: '|',
       icon: [
         { href: image_url('/assets/maguro.svg') }
-      ]
+      ],
+      og: {
+        site_name: :site,
+        title: :title,
+        description: :description,
+        type: 'website',
+        url: request.original_url,
+        image: asset_pack_url('media/maguro.svg'),
+        local: 'ja-JP'
+      },
+      twitter: {
+        card: 'summary',
+        site: '@BuSuruga',
+        image: asset_pack_url('media/maguro.svg'),
+        width: 100,
+        height: 100
+      }
     }
   end
 end
