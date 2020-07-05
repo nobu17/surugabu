@@ -34,7 +34,7 @@
                 <%= link_to '削除', "/admin/article_edit/#{article.id}", method: :delete, data: { confirm: 'Are you sure?' } %>
             </td>
             <td>
-                <button type="button" id="<%= article.id %>" class="twitter_btn">
+                <button type="button" id="<%= article.id %>" value="<%= article.title %> <%= article.sub_title %>" class=" twitter_btn">
                     投稿
                 </button>
             </td>
