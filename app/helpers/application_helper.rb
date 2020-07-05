@@ -12,7 +12,7 @@ module ApplicationHelper
       canonical: request.original_url,
       separator: '|',
       icon: [
-        { href: image_url('images/maguro.svg') }
+        { href: image_url('maguro.svg') }
       ],
       og: {
         site_name: :site,
@@ -20,13 +20,13 @@ module ApplicationHelper
         description: :description,
         type: 'website',
         url: request.original_url,
-        image: image_url('images/magu.png'),
+        image: image_url('magu.png'),
         local: 'ja-JP'
       },
       twitter: {
         card: 'summary',
         site: '@BuSuruga',
-        image: image_url('images/magu.png'),
+        image: image_url('magu.png'),
         width: 100,
         height: 100
       }
