@@ -20,13 +20,13 @@ module ApplicationHelper
         description: :description,
         type: 'website',
         url: request.original_url,
-        image: asset_pack_url('media/maguro.svg'),
+        image: asset_pack_url('/assets/maguro.svg'),
         local: 'ja-JP'
       },
       twitter: {
         card: 'summary',
         site: '@BuSuruga',
-        image: asset_pack_url('media/maguro.svg'),
+        image: asset_pack_url('/assets/maguro.svg'),
         width: 100,
         height: 100
       }
