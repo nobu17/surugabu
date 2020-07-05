@@ -1,3 +1,4 @@
+<%= javascript_pack_tag 'article_edit_show/application' %>
 <%= link_to '戻る', "/admin/", class: "btn btn-raised btn-danger col-md-4" %>
 <div class="mx-auto" style="width: 300px;">
     <h1>記事一覧</h1>
@@ -16,6 +17,7 @@
             <th scope="col">投稿日</th>
             <th scope="col">更新日</th>
             <th scope="col">#</th>
+            <th scope="col">Twitter</th>
         </tr>
     </thead>
     <tbody>
@@ -30,6 +32,11 @@
             <td>
                 <%= link_to '編集', "/admin/article_edit/#{article.id}/edit" %>
                 <%= link_to '削除', "/admin/article_edit/#{article.id}", method: :delete, data: { confirm: 'Are you sure?' } %>
+            </td>
+            <td>
+                <button type="button" name="twi" onClick="openTwitter(<%= article.id %>)">
+                    投稿
+                </button>
             </td>
         </tr>
         <% end %>

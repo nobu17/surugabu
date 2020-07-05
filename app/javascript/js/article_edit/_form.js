@@ -107,3 +107,4 @@ function replaceNewLine(input) {
   const newline = String.fromCharCode(13, 10);
   return input.split("\\n").join(newline);
 }
+
