@@ -4,9 +4,7 @@ class CustomRenderer < Redcarpet::Render::HTML
   include ActionView::Helpers::AssetTagHelper
 
   def image(link, title, alt_text)
-    content_tag :div, class: 'center' do
-      image_tag(link, title: title, alt: alt_text, loading: 'lazy%')
-    end
+    image_tag(link, title: title, alt: alt_text, loading: 'lazy%')
   end
 end
 
