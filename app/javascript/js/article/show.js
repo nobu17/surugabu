@@ -2,8 +2,8 @@ import marked from "marked";
 import Rails from "@rails/ujs";
 
 window.onload = function () {
-  loadMD();
-  // incrementAccessCount();
+  // loadMD();
+  incrementAccessCount();
 };
 
 function loadMD() {
