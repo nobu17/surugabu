@@ -2,7 +2,7 @@ import marked from "marked";
 import Rails from "@rails/ujs";
 
 window.onload = function () {
-  // loadMD();
+  loadMD();
   // incrementAccessCount();
 };
 
