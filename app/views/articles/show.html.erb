@@ -13,10 +13,10 @@
             </div>
             <% end %>
             <h6 class="card-subtitle mb-2 text-muted" style="text-align:right;">作成日: <%= @article.created_at.strftime("%Y/%m/%d") %>　最終更新日: <%= @article.updated_at.strftime("%Y/%m/%d") %></h6>
-            <h3>
+            <h1>
                 <%= @article.title %>
-            </h3>
-            <h4 class="ml-1"><%= @article.sub_title %></h4>
+            </h1>
+            <h2 class="ml-1"><%= @article.sub_title %></h2>
             <div class="row m-1">
                 <% @areas.each do |area| %>
                 <h4>
