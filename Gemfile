@@ -82,3 +82,6 @@ gem 'bson_ext' # accelerate BSON serialization
 
 # for sitemap
 gem 'sitemap_generator'
+
+# for markdown
+gem 'redcarpet'
