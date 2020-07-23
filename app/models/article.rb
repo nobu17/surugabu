@@ -41,7 +41,10 @@ class Article < ApplicationRecord
 
   def title_image_compressed_url
     if title_image.attached?
-      url_for(title_image_compressed)
+      Rails.application.routes.url_helpers.rails_blob_url(
+        title_image_compressed.blob,
+        Rails.application.config.action_mailer.default_url_options
+      )
     else
       ''
     end
