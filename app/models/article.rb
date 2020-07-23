@@ -1,8 +1,7 @@
 # frozen_string_literal: true
 
 class Article < ApplicationRecord
-  include Concerns::ImageUrl
-
+  include Rails.application.routes.url_helpers
   ITEM_NUMER_OF_PAGE = 10
 
   enum status: { open: 0, draft: 1 }
