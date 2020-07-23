@@ -64,8 +64,8 @@ function addMakerByGroup(map, categoryList) {
 }
 
 function getMarker(placeData) {
-  let sucontents = `<h4>${placeData.title}</h4><p>${placeData.sub_title}</p></br>`;
-  sucontents += `<a href="${article_url}${placeData.id}"><img src="${placeData.title_image_compressed_url}" width="200"></img></a>`;
+  let sucontents = `<a target="_blank" rel="noopener noreferrer" href="${article_url}${placeData.id}"><h5>${placeData.title}</h5></a><p>${placeData.sub_title}</p></br>`;
+  sucontents += `<a target="_blank" rel="noopener noreferrer" href="${article_url}${placeData.id}"><img src="${placeData.title_image_compressed_url}" width="200"></img></a>`;
   //ポップアップオブジェクトを作成
   const popup1 = L.popup({ maxWidth: 850 }).setContent(sucontents);
   //マーカーにポップアップを紐付けする。同時にbindTooltipでツールチップも追加
