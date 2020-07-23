@@ -5,7 +5,7 @@ class MapController < ApplicationController
 
   # GET map/all
   def all
-    data = Article.find_map_data
+    data = Article.cached_all_maps
     render json: { data: data }
   end
 end

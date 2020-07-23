@@ -22,6 +22,7 @@ class ArticleEditController < ApplicationController
   def create
     @article = Article.new(article_params)
     if @article.save
+      Article.clear_map_cache
       redirect_to '/admin/article_edit', notice: 'Article was successfully created.'
     else
       render :new
@@ -31,6 +32,7 @@ class ArticleEditController < ApplicationController
   # PATCH/PUT admin/article_edit/1
   def update
     if @article.update(article_params)
+      Article.clear_map_cache
       redirect_to '/admin/article_edit', notice: 'Article was successfully updated.'
     else
       render :edit
@@ -42,6 +44,7 @@ class ArticleEditController < ApplicationController
     @article.title_image.purge if @article.title_image.attached?
     @article.content_images.purge if @article.content_images.attached?
     @article.destroy
+    Article.clear_map_cache
     redirect_to '/admin/article_edit', notice: 'Article was successfully deleted.'
   end
 

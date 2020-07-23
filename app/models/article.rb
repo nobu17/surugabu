@@ -49,6 +49,17 @@ class Article < ApplicationRecord
     end
   end
 
+  def self.clear_map_cache
+    Rails.cache.delete('cache_maps')
+  end
+
+  def self.cached_all_maps
+    Rails.cache.fetch('cache_maps', expired_in: 60.minutes) do
+      # Area.all
+      Article.find_map_data.to_a
+    end
+  end
+
   scope :search_article_by_id, lambda { |article_id|
     includes(:areas, :categorys).where(id: article_id).first
   }
