@@ -1,6 +1,8 @@
 # frozen_string_literal: true
 
 class Article < ApplicationRecord
+  include Rails.application.routes.url_helpers
+  
   ITEM_NUMER_OF_PAGE = 10
 
   enum status: { open: 0, draft: 1 }
@@ -41,10 +43,7 @@ class Article < ApplicationRecord
 
   def title_image_compressed_url
     if title_image.attached?
-      Rails.application.routes.url_helpers.rails_blob_url(
-        title_image_compressed.blob,
-        Rails.application.config.action_mailer.default_url_options
-      )
+      url_for(title_image_compressed)
     else
       ''
     end
