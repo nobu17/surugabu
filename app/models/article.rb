@@ -20,6 +20,12 @@ class Article < ApplicationRecord
   validates :content, presence: true
   validates :areas, presence: true
   validates :categorys, presence: true
+  validates :latitude, presence: true
+  validates :latitude, numericality: true
+  validates :latitude, inclusion: { in: -90..90, message: '緯度は-90~90の間で設定してください。' }
+  validates :longitude, presence: true
+  validates :longitude, numericality: true
+  validates :longitude, inclusion: { in: -180..180, message: '経度は-90~90の間で設定してください。' }
 
   def title_image_thumbnail
     if title_image.attached?
@@ -30,6 +36,17 @@ class Article < ApplicationRecord
   def title_image_compressed
     if title_image.attached?
       title_image.variant(resize_to_fill: [680, 480]).processed
+    end
+  end
+
+  def title_image_compressed_url
+    if title_image.attached?
+      Rails.application.routes.url_helpers.rails_blob_url(
+        title_image_compressed.blob,
+        Rails.application.config.action_mailer.default_url_options
+      )
+    else
+      ''
     end
   end
 
@@ -73,5 +90,12 @@ class Article < ApplicationRecord
       .where.not(id: self_id)
       .order(created_at: :desc)
       .limit(5)
+  }
+  scope :find_map_data, lambda {
+    where(status: 0)
+    where.not(longitude: 0, latitude: 0)
+         .as_json(only: %i[id title sub_title latitude longitude],
+                  methods: :title_image_compressed_url,
+                  include: [{ categorys: { only: %i[id name] } }])
   }
 end

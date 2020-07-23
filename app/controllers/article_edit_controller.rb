@@ -55,7 +55,10 @@ class ArticleEditController < ApplicationController
 
   # Only allow a list of trusted parameters through.
   def article_params
-    params.require(:article).permit(:title, :sub_title, :content, :title_image, :status, content_images: [], area_ids: [], category_ids: [])
+    params.require(:article).permit(:title, :sub_title, :content, :title_image,
+                                    :latitude, :longitude,
+                                    :status, content_images: [],
+                                             area_ids: [], category_ids: [])
   end
 
   def ajax_params

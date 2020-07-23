@@ -12,6 +12,7 @@
     "github-markdown-css": "^4.0.0",
     "inline-attachment": "^2.0.3",
     "jquery": "3.4.1",
+    "leaflet": "^1.6.0",
     "marked": "^1.0.0",
     "popper.js": "^1.16.1",
     "simplemde": "^1.11.2"

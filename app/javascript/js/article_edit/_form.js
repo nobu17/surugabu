@@ -75,6 +75,9 @@ function loadButtonEvents() {
   document.getElementById("template-button").onclick = function () {
     addTemplateMarkdown();
   };
+  document.getElementById("map-button").onclick = function () {
+    converGoogleMapToLoc();
+  };
 }
 
 function previewMarkdown() {
@@ -108,3 +111,45 @@ function replaceNewLine(input) {
   return input.split("\\n").join(newline);
 }
 
+function converGoogleMapToLoc() {
+  const url = document.getElementById("map-input").value;
+  if (!url) {
+    alert("URLが入力されていません。");
+    return;
+  }
+  const lat = getMapPos(url, "!3d");
+  if(lat == -1) {
+    alert("変換に失敗しました。");
+    return
+  }
+  setLocValue("lat-input", lat)
+
+  const log = getMapPos(url, "!2d");
+  if(log == -1) {
+    alert("変換に失敗しました。");
+    return
+  }
+  setLocValue("long-input", log)
+}
+
+function getMapPos(url, searchWord) {
+  const start = url.indexOf(searchWord);
+  if (start == -1) {
+    return -1;
+  }
+  const end = url.indexOf("!", start + searchWord.length);
+  if (end == -1) {
+    return -1;
+  }
+
+  let val = url.slice(start + searchWord.length, end);
+  val = Number.parseFloat(val)
+  if (Number.isNaN(val)) {
+    return -1;
+  }
+  return val;
+}
+
+function setLocValue(tag, value) {
+  document.getElementById(tag).value = value
+}

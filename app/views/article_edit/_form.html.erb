@@ -78,7 +78,28 @@
     </button>
 </div>
 
+<div class="row">
+    <hr class="col md-12">
+</div>
 
+<div class="row">
+    <label class="col md-12">GoogleMapURL:
+        <input id="map-input" class="form-control" type="text">
+    </label>
+    <button id="map-button" type="button" class="btn btn-warning btn-raised w-80 ml-2">
+        緯度,経度入力
+    </button>
+</div>
+
+
+<div class="field form-group">
+    <%= form.label :title, "緯度" %>
+    <%= form.text_field :latitude, { id:"lat-input", class:"form-control" } %>
+</div>
+<div class="field form-group">
+    <%= form.label :title, "経度" %>
+    <%= form.text_field :longitude, { id:"long-input", class:"form-control" } %>
+</div>
 
 <!-- 
 <div class="row">

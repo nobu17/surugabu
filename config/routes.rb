@@ -14,6 +14,9 @@ Rails.application.routes.draw do
   get 'articles/pages/:page', to: 'articles#index'
   get 'articles/:id', to: 'articles#show'
 
+  get 'map/', to: 'map#index'
+  get 'map/all', to: 'map#all'
+
   get 'about/', to: 'about#index'
 
   get 'contact/', to: 'contact#index'
