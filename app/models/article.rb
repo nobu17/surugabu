@@ -42,7 +42,7 @@ class Article < ApplicationRecord
 
   def title_image_compressed_url
     if title_image.attached?
-      Rails.application.routes.default_url_options = 'surugabu.com'
+      Rails.application.routes.default_url_options[:host] = 'surugabu.com'
       url_for(title_image_compressed)
     else
       ''
