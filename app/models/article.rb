@@ -53,9 +53,7 @@ class Article < ApplicationRecord
   def self.clear_all_cache
     Rails.cache.delete('cache_maps')
     # delete page cache
-    Rails.cache.keys.each do |key|
-      Rails.cache.delete(key) if key.end_with?('_page_cache')
-    end
+    Rails.cache.delete_matched('*_page_cache')
   end
 
   def self.cached_all_maps
