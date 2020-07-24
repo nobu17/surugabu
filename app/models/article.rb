@@ -49,14 +49,26 @@ class Article < ApplicationRecord
     end
   end
 
-  def self.clear_map_cache
+  def self.clear_all_cache
     Rails.cache.delete('cache_maps')
+    # delete page cache
+    Rails.cache.keys.each do |key|
+      Rails.cache.delete(key) if key.end_with?('_page_cache')
+    end
   end
 
   def self.cached_all_maps
     Rails.cache.fetch('cache_maps', expired_in: 60.minutes) do
       # Area.all
       Article.find_map_data.to_a
+    end
+  end
+
+  def self.cached_page(page)
+    key = page.to_s + '_page_cache'
+    Rails.cache.fetch(key, expired_in: 60.minutes) do
+      puts 'start store page:' + key
+      Article.search_by_page(page).to_a
     end
   end
 

@@ -18,7 +18,7 @@ module ArticleActions
                 elsif !category.nil?
                   Article.search_category_by_page(category, params[:page])
                 else
-                  Article.search_by_page(params[:page])
+                  Article.cached_page(params[:page])
                 end
   end
 

@@ -2,6 +2,7 @@ require("leaflet");
 require("js/map/index");
 import 'leaflet/dist/leaflet.css'
 
+
 // need re-set icon for webpack
 import iconRetinaUrl from 'leaflet/dist/images/marker-icon-2x.png'
 import iconUrl from 'leaflet/dist/images/marker-icon.png'
