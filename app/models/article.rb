@@ -35,9 +35,10 @@ class Article < ApplicationRecord
   end
 
   def title_image_compressed
-    if title_image.attached?
-      title_image.variant(resize_to_fill: [680, 480]).processed
-    end
+    title_image
+    # if title_image.attached?
+    #   title_image.variant(resize_to_fill: [680, 480]).processed
+    # end
   end
 
   def title_image_compressed_url
