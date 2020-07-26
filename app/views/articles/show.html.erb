@@ -24,7 +24,7 @@
             </div>
             <%= render partial: "layouts/sns" %>
             <%= image_tag_with_default @article.title_image_compressed, class: "card-img-top mb-3" %>
-            <div id="actual_content" class="art-p mt-2 markdown-body">
+            <div id="actual_content" class="mt-2 markdown-body">
                 <%= markdown_to_html @article.content %>
             </div>
 
