@@ -6,23 +6,27 @@ let map;
 window.onload = async () => {
   try {
     map = getMap();
+    const mapTab = document.getElementById("map-tab");
     const data = await loadMapData();
     initMap(data);
-    displayMap();
+    // only map tab not existed case
+    if (!mapTab) {
+      displayMap();
+    } else {
+      const observer = new MutationObserver(function () {        
+        if (mapTab.style.display != "none") {
+          setTimeout(() => {
+            // map.invalidateSize();
+            displayMap();
+            map.invalidateSize();
+          }, 500);
+        }
+      });
+      observer.observe(mapTab, { attributes: true });
+    }
   } catch (e) {
     console.error(e);
     displayError();
-  }
-  var mapTab = document.getElementById("map-tab");
-  if (mapTab) {
-    var observer = new MutationObserver(function () {
-      if (mapTab.style.display != "none") {
-          setTimeout(()=> {
-            map.invalidateSize();
-          }, 100);
-      }
-    });
-    observer.observe(mapTab, { attributes: true });
   }
 };
 
