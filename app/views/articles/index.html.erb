@@ -36,23 +36,7 @@
             <% @articles.each_with_index do |ar, i| %>
             <!-- post -->
             <div class="col-md-4">
-                <div class="post">
-                    <%= link_to "/articles/#{ar.id}", { class: "post-img" } do %>
-                    <%= image_tag_with_default ar.title_image_compressed, {} %>
-                    <% end %>
-                    <div class="post-body">
-                        <div class="post-meta">
-                            <%= render partial: "layouts/category-and-area", locals: { categorys: ar.categorys, areas: ar.areas } %>
-                            <span class="post-date"><%= ar.created_at.strftime("%Y/%m/%d") %></span>
-                        </div>
-                        <h3 class="post-title">
-                            <%= link_to "/articles/#{ar.id}" do %>
-                            <%= ar.title %>
-                            <p><%= ar.sub_title %></p>
-                            <% end %>
-                        </h3>
-                    </div>
-                </div>
+                <%= render partial: "articles/article-panel", locals: { article: ar} %>
             </div>
             <!-- /post -->
             <% end %>
