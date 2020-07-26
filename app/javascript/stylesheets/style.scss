@@ -1,63 +1,12 @@
 /* 
-Template Name: WebMag Html Template
-
-Author: yaminncco
-
-Colors:
-	Body : #3d455c
-	Headers : #212631
-	Primary : #212631 #4BB92F #ff8700 #0078ff #8d00ff
-	Dark : #212631
-	Grey : #eceef2 #a7b3c6 #fbfbfd
-
-Fonts: Nunito & Nunito-Sans
-
-Table OF Contents
-------------------------------------
-GENERAL
-NAVIGATION
-HEADER
-POST
-POST PAGE
-ASIDE
-FOOTER
-RESPONSIVE
-------------------------------------*/
 /*=========================================================
 	GENERAL
 ===========================================================*/
 /*----------------------------*\
 	typography
 \*----------------------------*/
- body {
-     font-family: 'Nunito', sans-serif;
-     font-size: 16px;
-     font-weight: 300;
-     color: #3d455c;
-     margin: 0;
-     padding: 0;
-     overflow-x: hidden;
-}
- h1, h2, h3, h4, h5, h6 {
-     font-family: 'Nunito Sans', sans-serif;
-     font-weight: 700;
-     color: #212631;
-     margin: 0px 0px 15px;
-}
- h1 {
-     font-size: 34px;
-}
- h2 {
-     font-size: 28px;
-}
- h3 {
-     font-size: 23px;
-}
- h4 {
-     font-size: 16px;
-}
+
  a {
-     font-weight: 600;
      color: #212631;
      text-decoration: none;
 }
@@ -65,9 +14,6 @@ RESPONSIVE
      color: #212631;
      text-decoration: underline;
      outline: none;
-}
- p {
-     margin: 0px 0px 20px;
 }
  ul,ol{
      margin: 0;
