@@ -2,7 +2,7 @@
 
 class Article < ApplicationRecord
   include Rails.application.routes.url_helpers
-  ITEM_NUMER_OF_PAGE = 10
+  ITEM_NUMER_OF_PAGE = 6
 
   enum status: { open: 0, draft: 1 }
 
