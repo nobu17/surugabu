@@ -13,10 +13,10 @@
             </div>
             <% end %>
             <h6 class="card-subtitle mb-2 text-muted" style="text-align:right;">作成日: <%= @article.created_at.strftime("%Y/%m/%d") %>　最終更新日: <%= @article.updated_at.strftime("%Y/%m/%d") %></h6>
-            <h1>
+            <h1 class="article-title">
                 <%= @article.title %>
             </h1>
-            <h2 class="ml-1"><%= @article.sub_title %></h2>
+            <h2 class="article-sub-title ml-1"><%= @article.sub_title %></h2>
             <div class="row m-1">
                 <div class="post-meta">
                     <%= render partial: "layouts/category-and-area", locals: { categorys: @categorys, areas: @areas } %>
