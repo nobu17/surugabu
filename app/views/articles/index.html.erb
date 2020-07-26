@@ -13,51 +13,51 @@
 </div>
 <% end %>
 
+<!-- row -->
+<div class="row">
+    <div class="col-md-12">
+        <div class="section-title">
+            <h2>最新の投稿</h2>
+        </div>
+    </div>
 
-<div class="row row-cols-1 row-cols-md-2">
     <% @articles.each_with_index do |ar, i| %>
-    <div class="col mb-4 rounded">
-        <div class="card h-100" style="border-radius: 15px;">
-            <%= link_to "/articles/#{ar.id}" do %>
-            <%= image_tag_with_default ar.title_image_compressed, class: "card-img-top art-img hover-img", style: "border-top-left-radius: 15px; border-top-right-radius: 15px;" %>
+    <!-- post -->
+    <div class="col-md-4">
+        <div class="post">
+            <%= link_to "/articles/#{ar.id}", { class: "post-img" } do %>
+            <img src="./assets/no-image-e1a743df0c155237d2677a50919e83279a8002ff93f24727582e52ffb2347dd1.png" alt="">
             <% end %>
-            <div class="card-body">
-                <div class="row">
+            <div class="post-body">
+                <div class="post-meta">
+                    <!-- area badge -->
                     <% ar.areas.each do |area| %>
-                    <h5>
-                        <%= link_to "/articles/pages/1?area=#{area.id}", { class: "badge badge-info m-1 ml-2" } do %>
-                        <%= area.name %>
-                        <% end %>
-                    </h5>
+                    <%= link_to "/articles/pages/1?area=#{area.id}", { class: "post-category cat-1" } do %>
+                    <%= area.name %>
                     <% end %>
+                    <% end %>
+                    <!-- category badge -->
                     <% ar.categorys.each do |category| %>
-                    <h5>
-                        <%= link_to "/articles/pages/1?category=#{category.id}", { class: "badge badge-success m-1" } do %>
-                        <%= category.name %>
-                        <% end %>
-                    </h5>
+                    <%= link_to "/articles/pages/1?category=#{category.id}", { class: "post-category cat-2" } do %>
+                    <%= category.name %>
                     <% end %>
-                </div>
-                <h4>
-                    <%= link_to ar.title , "/articles/#{ar.id}" %>
-                </h4>
-                <h5 class=" card-text"><%= ar.sub_title %></h5>
+                    <% end %>
 
-                <div class="row float-right">
-                    <ion-icon class="ml-2 mt-2" name="settings"></ion-icon>
-                    <div class="display:inline-block;">
-                        <p class="ml-1 mt-1 mr-1"><%= ar.updated_at.strftime("%Y/%m/%d") %></p>
-                    </div>
-                    <ion-icon class="ml-2 mt-2" name="time"></ion-icon>
-                    <div class="display:inline-block;">
-                        <p class="ml-1 mt-1 mr-4"><%= ar.created_at.strftime("%Y/%m/%d") %></p>
-                    </div>
+                    <span class="post-date"><%= ar.created_at.strftime("%Y/%m/%d") %></span>
                 </div>
+                <h3 class="post-title">
+                    <%= link_to "/articles/#{ar.id}" do %>
+                    <%= ar.title %>
+                    <p><%= ar.sub_title %></p>
+                    <% end %>
+                </h3>
             </div>
         </div>
     </div>
+    <!-- /post -->
     <% end %>
 </div>
+
 <div class="mx-auto" style="width: 300px;">
     <%= will_paginate(@articles, :renderer => WillPaginate::ActionView::Bootstrap4LinkRenderer, :previous_label => ' &lt 前へ', :next_label => '次へ &gt') %>
 </div>

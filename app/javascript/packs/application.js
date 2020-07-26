@@ -9,6 +9,7 @@ require("@rails/activestorage").start();
 require("channels");
 
 require("jquery");
+require("bootstrap");
 require("marked");
 
 // Uncomment to copy all static images under ../images to the output folder and reference
@@ -18,5 +19,11 @@ require("marked");
 // const images = require.context('../images', true)
 // const imagePath = (name) => images(name, true)
 
-import "bootstrap-material-design";
+// import "bootstrap-material-design";
+///import "../stylesheets/pixel";
+
+//require("./avantui");
+//import "../stylesheets/avantui"
+//require("now-ui-kit/assets/css/now-ui-kit");
+//import "now-ui-kit/assets/css/now-ui-kit"
 import "../stylesheets/application";

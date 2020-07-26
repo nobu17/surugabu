@@ -1,4 +1,8 @@
-@import "~bootstrap-material-design/scss/bootstrap-material-design";
+// @import "~bootstrap-material-design/scss/bootstrap-material-design";
+@import "bootstrap";
+//@import "~now-ui-kit/assets/scss/now-ui-kit";
+//@import "./avantui";
+@import "./style";
 @import "~css-spinners";
 @import "~github-markdown-css";
 
@@ -28,6 +32,9 @@ h1 {
 h2 {
   font-size: 22px;
 }
+
+
+/*
 
 .dropdown-toggle::after {
   border: none;
@@ -60,6 +67,8 @@ h2 {
 .nav-item a:hover::after {
   width: 50%;
 }
+
+*/
 
 hr {
   border-top: 3px dashed blue;
