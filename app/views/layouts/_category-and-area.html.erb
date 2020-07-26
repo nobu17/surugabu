@@ -1,0 +1,12 @@
+<!-- area badge -->
+<% areas.each do |area| %>
+<%= link_to "/articles/pages/1?area=#{area.id}", { class: "post-category cat-1" } do %>
+<%= area.name %>
+<% end %>
+<% end %>
+<!-- category badge -->
+<% categorys.each do |category| %>
+<%= link_to "/articles/pages/1?category=#{category.id}", { class: "post-category cat-2" } do %>
+<%= category.name %>
+<% end %>
+<% end %>

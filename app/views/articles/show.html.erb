@@ -19,18 +19,7 @@
             <h2 class="ml-1"><%= @article.sub_title %></h2>
             <div class="row m-1">
                 <div class="post-meta">
-                    <!-- area badge -->
-                    <% @areas.each do |area| %>
-                    <%= link_to "/articles/pages/1?area=#{area.id}", { class: "post-category cat-1" } do %>
-                    <%= area.name %>
-                    <% end %>
-                    <% end %>
-                    <!-- category badge -->
-                    <% @categorys.each do |category| %>
-                    <%= link_to "/articles/pages/1?category=#{category.id}", { class: "post-category cat-2" } do %>
-                    <%= category.name %>
-                    <% end %>
-                    <% end %>
+                    <%= render partial: "layouts/category-and-area", locals: { categorys: @categorys, areas: @areas } %>
                 </div>
             </div>
             <%= render partial: "layouts/sns" %>
