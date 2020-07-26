@@ -26,7 +26,7 @@
     <div class="col-md-4">
         <div class="post">
             <%= link_to "/articles/#{ar.id}", { class: "post-img" } do %>
-            <img src="./assets/no-image-e1a743df0c155237d2677a50919e83279a8002ff93f24727582e52ffb2347dd1.png" alt="">
+            <%= image_tag_with_default ar.title_image_compressed, {} %>
             <% end %>
             <div class="post-body">
                 <div class="post-meta">
