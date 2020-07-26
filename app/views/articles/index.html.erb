@@ -13,51 +13,70 @@
 </div>
 <% end %>
 
-<!-- row -->
+<!-- selection tab -->
 <div class="row">
-    <div class="col-md-12">
-        <div class="section-title">
-            <h2>最新の投稿</h2>
+    <nav>
+        <div class="col-md-12" style="margin-bottom: 10px;">
+            <ul class="nav nav-tabs" id="myTab" role="tablist">
+                <li class="nav-item">
+                    <a class="nav-link active" id="home-tab" data-toggle="tab" href="#nav-home" aria-selected="true">投稿一覧</a>
+                </li>
+                <li class="nav-item" id="map-li">
+                    <a class="nav-link" id="map-tab" data-toggle="tab" href="#nav-map" aria-selected="false">地図で探す</a>
+                </li>
+            </ul>
         </div>
-    </div>
-
-    <% @articles.each_with_index do |ar, i| %>
-    <!-- post -->
-    <div class="col-md-4">
-        <div class="post">
-            <%= link_to "/articles/#{ar.id}", { class: "post-img" } do %>
-            <%= image_tag_with_default ar.title_image_compressed, {} %>
-            <% end %>
-            <div class="post-body">
-                <div class="post-meta">
-                    <!-- area badge -->
-                    <% ar.areas.each do |area| %>
-                    <%= link_to "/articles/pages/1?area=#{area.id}", { class: "post-category cat-1" } do %>
-                    <%= area.name %>
-                    <% end %>
-                    <% end %>
-                    <!-- category badge -->
-                    <% ar.categorys.each do |category| %>
-                    <%= link_to "/articles/pages/1?category=#{category.id}", { class: "post-category cat-2" } do %>
-                    <%= category.name %>
-                    <% end %>
-                    <% end %>
-
-                    <span class="post-date"><%= ar.created_at.strftime("%Y/%m/%d") %></span>
-                </div>
-                <h3 class="post-title">
-                    <%= link_to "/articles/#{ar.id}" do %>
-                    <%= ar.title %>
-                    <p><%= ar.sub_title %></p>
-                    <% end %>
-                </h3>
-            </div>
-        </div>
-    </div>
-    <!-- /post -->
-    <% end %>
+    </nav>
 </div>
 
-<div class="mx-auto" style="width: 300px;">
-    <%= will_paginate(@articles, :renderer => WillPaginate::ActionView::Bootstrap4LinkRenderer, :previous_label => ' &lt 前へ', :next_label => '次へ &gt') %>
+<div class=" tab-content" id="nav-tabContent">
+    <div class="tab-pane fade show active" id="nav-home">
+        <!-- post all tab -->
+        <div class=" row">
+            <% @articles.each_with_index do |ar, i| %>
+            <!-- post -->
+            <div class="col-md-4">
+                <div class="post">
+                    <%= link_to "/articles/#{ar.id}", { class: "post-img" } do %>
+                    <%= image_tag_with_default ar.title_image_compressed, {} %>
+                    <% end %>
+                    <div class="post-body">
+                        <div class="post-meta">
+                            <!-- area badge -->
+                            <% ar.areas.each do |area| %>
+                            <%= link_to "/articles/pages/1?area=#{area.id}", { class: "post-category cat-1" } do %>
+                            <%= area.name %>
+                            <% end %>
+                            <% end %>
+                            <!-- category badge -->
+                            <% ar.categorys.each do |category| %>
+                            <%= link_to "/articles/pages/1?category=#{category.id}", { class: "post-category cat-2" } do %>
+                            <%= category.name %>
+                            <% end %>
+                            <% end %>
+
+                            <span class="post-date"><%= ar.created_at.strftime("%Y/%m/%d") %></span>
+                        </div>
+                        <h3 class="post-title">
+                            <%= link_to "/articles/#{ar.id}" do %>
+                            <%= ar.title %>
+                            <p><%= ar.sub_title %></p>
+                            <% end %>
+                        </h3>
+                    </div>
+                </div>
+            </div>
+            <!-- /post -->
+            <% end %>
+        </div>
+
+        <div class="mx-auto" style="width: 300px;">
+            <%= will_paginate(@articles, :renderer => WillPaginate::ActionView::Bootstrap4LinkRenderer, :previous_label => ' &lt 前へ', :next_label => '次へ &gt') %>
+        </div>
+    </div>
+
+    <!-- map tab -->
+    <div class="tab-pane fade" id="nav-map">
+        <%= render partial: "layouts/map" %>
+    </div>
 </div>

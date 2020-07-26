@@ -1,15 +1,28 @@
 import Rails from "@rails/ujs";
 
-const article_url =  "https://" + location.hostname + "/articles/"
+const article_url = "https://" + location.hostname + "/articles/";
+let map;
 
 window.onload = async () => {
   try {
+    map = getMap();
     const data = await loadMapData();
     initMap(data);
     displayMap();
   } catch (e) {
     console.error(e);
     displayError();
+  }
+  var mapTab = document.getElementById("map-tab");
+  if (mapTab) {
+    var observer = new MutationObserver(function () {
+      if (mapTab.style.display != "none") {
+          setTimeout(()=> {
+            map.invalidateSize();
+          }, 100);
+      }
+    });
+    observer.observe(mapTab, { attributes: true });
   }
 };
 
@@ -22,16 +35,16 @@ async function loadMapData() {
     },
   });
   const data = await res.json();
-  console.log(data);
+  // console.log(data);
   const sortedData = groupByCategory(data.data);
-  console.log(sortedData);
+  // console.log(sortedData);
   return sortedData;
 }
 
 function initMap(markerData) {
-  var map = L.map("mapcontainer", { zoomControl: true });
+  // let map = getMap();
   //座標の指定
-  var mpoint = [35.12343, 138.927479];
+  let mpoint = [35.12343, 138.927479];
   if (
     navigator.userAgent.indexOf("iPhone") > 0 ||
     navigator.userAgent.indexOf("iPod") > 0 ||
@@ -65,13 +78,13 @@ function addMakerByGroup(map, categoryList) {
 
 function getMarker(placeData) {
   let sucontents = `<a target="_blank" rel="noopener noreferrer" href="${article_url}${placeData.id}"><h5>${placeData.title}</h5></a>`;
-  sucontents += `<a target="_blank" rel="noopener noreferrer" href="${article_url}${placeData.id}"><p>${placeData.sub_title}</p></a>`
+  sucontents += `<a target="_blank" rel="noopener noreferrer" href="${article_url}${placeData.id}"><p>${placeData.sub_title}</p></a>`;
   sucontents += `<a target="_blank" rel="noopener noreferrer" href="${article_url}${placeData.id}"><img src="${placeData.title_image_compressed_url}" width="200"></img></a>`;
   //ポップアップオブジェクトを作成
   const popup1 = L.popup({ maxWidth: 250 }).setContent(sucontents);
   //マーカーにポップアップを紐付けする。同時にbindTooltipでツールチップも追加
   return L.marker([placeData.latitude, placeData.longitude], {
-    draggable: false
+    draggable: false,
   }).bindPopup(popup1);
 }
 
@@ -95,4 +108,8 @@ function groupByCategory(data) {
     rv[x.category.name].push(x);
     return rv;
   }, {});
+}
+
+function getMap() {
+  return L.map("mapcontainer", { zoomControl: true });
 }
