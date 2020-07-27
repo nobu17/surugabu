@@ -41,6 +41,11 @@ class Article < ApplicationRecord
     # end
   end
 
+  def title_image_compressed_ogp_url
+    # this can get not permanent url
+    rails_representation_url(title_image, disposition: :inline)
+  end
+
   def title_image_compressed_url
     if title_image.attached?
       Rails.application.routes.default_url_options[:host] = 'surugabu.com'
