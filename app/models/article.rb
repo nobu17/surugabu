@@ -43,7 +43,8 @@ class Article < ApplicationRecord
 
   def title_image_compressed_ogp_url
     # this can get not permanent url
-    rails_representation_url(title_image, disposition: :inline)
+    helpers = Rails.application.routes.url_helpers
+    helpers.rails_representation_url(title_image, only_path: true)
   end
 
   def title_image_compressed_url
