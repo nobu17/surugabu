@@ -326,7 +326,6 @@ DEPENDENCIES
   devise
   dotenv-rails
   fog-google
-  google-api-client
   google-cloud-storage
   image_processing (~> 1.2)
   jbuilder (~> 2.7)

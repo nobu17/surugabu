@@ -73,7 +73,7 @@ gem 'dotenv-rails'
 # for gcs
 gem 'carrierwave'
 gem 'fog-google'
-gem 'google-api-client'
+# gem 'google-api-client'
 gem 'google-cloud-storage'
 gem 'mime-types'
 gem 'mini_magick'
