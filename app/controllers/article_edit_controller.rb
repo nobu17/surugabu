@@ -54,7 +54,7 @@ class ArticleEditController < ApplicationController
     attachment = ImageAttachment.new
     attachment.save(ajax_params)
     # render json: { filename: url_for(attachment.image_compressed) }
-    render json: { filename: url_for(attachment.image_compressed) }
+    render json: { filename: attachment.image_compressed.url }
   end
 
   private
