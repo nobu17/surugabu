@@ -58,8 +58,8 @@ end
 gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
 
 # for page-nation
-gem 'will_paginate'
 gem 'bootstrap-will_paginate'
+gem 'will_paginate'
 
 # for login
 gem 'devise'
@@ -71,14 +71,19 @@ gem 'jquery-rails'
 gem 'dotenv-rails'
 
 # for gcs
-gem "google-cloud-storage"
+gem 'carrierwave'
+gem 'fog-google'
+gem 'google-api-client'
+gem 'google-cloud-storage'
+gem 'mime-types'
+gem 'mini_magick'
 
 # for SEO meta-tag
 gem 'meta-tags'
 
 # for mongodb
-gem 'mongoid'
 gem 'bson_ext' # accelerate BSON serialization
+gem 'mongoid'
 
 # for sitemap
 gem 'sitemap_generator'
