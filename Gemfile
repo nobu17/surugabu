@@ -78,6 +78,7 @@ gem 'google-cloud-storage'
 gem 'mime-types'
 gem 'mini_magick'
 
+
 # for SEO meta-tag
 gem 'meta-tags'
 
