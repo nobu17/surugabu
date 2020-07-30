@@ -25,3 +25,6 @@ rails generate mongoid:model
 
 # connect mongo(root is username)
 mongo -u root
+
+# docker compose for db
+docker-compose up -d
