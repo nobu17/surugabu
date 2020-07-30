@@ -72,7 +72,6 @@ h2 {
   position: relative;
 }
 
-
 .markdown-body h1:after,
 h2:after {
   position: absolute;
@@ -86,42 +85,6 @@ h2:after {
 .article-title {
   text-align: center;
 }
-
-/* for red animation of nav-item
-
-.dropdown-toggle::after {
-  border: none;
-}
-
-.nav-item a {
-  display: block;
-  padding: 0 0 5px;
-  position: relative;
-  text-decoration: none;
-}
-.nav-item a::before,
-.nav-item a::after {
-  border-bottom: solid 2px #f00;
-  bottom: 0;
-  content: "";
-  display: block;
-  position: absolute;
-  transition: all 0.3s ease;
-  -webkit-transition: all 0.3s ease;
-  width: 0;
-}
-.nav-item a::before {
-  left: 50%;
-}
-.nav-item a::after {
-  right: 50%;
-}
-.nav-item a:hover::before,
-.nav-item a:hover::after {
-  width: 50%;
-}
-
-*/
 
 hr {
   border-top: 3px dashed blue;
@@ -304,4 +267,20 @@ a:focus {
   line-height: 30px;
   letter-spacing: 1px;
   position: relative;
+}
+
+/* loading animation */
+body {
+  animation: fadeIn 2s ease 0s 1 normal;
+  -webkit-animation: fadeIn 2s ease 0s 1 normal;
+}
+
+@keyframes fadeIn {
+  0% {opacity: 0}
+  100% {opacity: 1}
+}
+
+@-webkit-keyframes fadeIn {
+  0% {opacity: 0}
+  100% {opacity: 1}
 }
