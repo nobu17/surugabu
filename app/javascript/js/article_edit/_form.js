@@ -75,6 +75,9 @@ function loadButtonEvents() {
   document.getElementById("template-button").onclick = function () {
     addTemplateMarkdown();
   };
+  document.getElementById("blogcard-button").onclick = function () {
+    addBlogCard();
+  };
   document.getElementById("map-button").onclick = function () {
     converGoogleMapToLoc();
   };
@@ -101,7 +104,14 @@ function previewMarkdown() {
 
 function addTemplateMarkdown() {
   const templateValue =
-    "\\n# 説明\\n\\n# 情報\\n|タイトル|内容|\\n|---|---|\\n|名称|hoge|\\n|住所|hoge|\\n|時間|8:30 ~ 18:00|\\n|駐車場|あり（9台）|\\n|休日|木曜日|\\n|HP|hoge|\\n";
+    "\\n## 説明\\n\\n## 情報\\n|タイトル|内容|\\n|---|---|\\n|名称|hoge|\\n|住所|hoge|\\n|時間|8:30 ~ 18:00|\\n|駐車場|あり（9台）|\\n|休日|木曜日|\\n|HP|hoge|\\n";
+  let currentValue = simplemde.value();
+  simplemde.value(currentValue + replaceNewLine(templateValue));
+}
+
+function addBlogCard() {
+  const templateValue =
+    '<div style="text-align: center;"><iframe class="hatenablogcard" style="width:100%;height:155px;margin:12px 0;max-width:680px;" title="%title%" src="https://hatenablog-parts.com/embed?url=https://surugabu.com/articles/1" frameborder="0" scrolling="no"></iframe></div>\\n';
   let currentValue = simplemde.value();
   simplemde.value(currentValue + replaceNewLine(templateValue));
 }
@@ -118,18 +128,18 @@ function converGoogleMapToLoc() {
     return;
   }
   const lat = getMapPos(url, "!3d");
-  if(lat == -1) {
+  if (lat == -1) {
     alert("変換に失敗しました。");
-    return
+    return;
   }
-  setLocValue("lat-input", lat)
+  setLocValue("lat-input", lat);
 
   const log = getMapPos(url, "!2d");
-  if(log == -1) {
+  if (log == -1) {
     alert("変換に失敗しました。");
-    return
+    return;
   }
-  setLocValue("long-input", log)
+  setLocValue("long-input", log);
 }
 
 function getMapPos(url, searchWord) {
@@ -143,7 +153,7 @@ function getMapPos(url, searchWord) {
   }
 
   let val = url.slice(start + searchWord.length, end);
-  val = Number.parseFloat(val)
+  val = Number.parseFloat(val);
   if (Number.isNaN(val)) {
     return -1;
   }
@@ -151,5 +161,5 @@ function getMapPos(url, searchWord) {
 }
 
 function setLocValue(tag, value) {
-  document.getElementById(tag).value = value
+  document.getElementById(tag).value = value;
 }
