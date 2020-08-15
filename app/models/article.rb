@@ -120,9 +120,9 @@ class Article < ApplicationRecord
   }
   scope :find_map_data, lambda {
     where(status: 0)
-    where.not(longitude: 0, latitude: 0)
-         .as_json(only: %i[id title sub_title latitude longitude],
-                  methods: :title_image_compressed_url,
-                  include: [{ categorys: { only: %i[id name] } }])
+      .where.not(longitude: 0, latitude: 0)
+      .as_json(only: %i[id title sub_title latitude longitude],
+               methods: :title_image_compressed_url,
+               include: [{ categorys: { only: %i[id name] } }])
   }
 end
