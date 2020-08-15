@@ -127,15 +127,48 @@ function converGoogleMapToLoc() {
     alert("URLが入力されていません。");
     return;
   }
-  const lat = getMapPos(url, "!3d");
+
+  if (url.includes("iframe")) {
+    convertFromGoogleMapFrame(url);
+  } else {
+    convertFromGoogleMapUrl(url);
+  }
+}
+
+function convertFromGoogleMapFrame(value) {
+  const lat = getMapPos(value, "!3d");
   if (lat == -1) {
     alert("変換に失敗しました。");
     return;
   }
   setLocValue("lat-input", lat);
 
-  const log = getMapPos(url, "!2d");
+  const log = getMapPos(value, "!2d");
   if (log == -1) {
+    alert("変換に失敗しました。");
+    return;
+  }
+  setLocValue("long-input", log);
+}
+
+function convertFromGoogleMapUrl(value) {
+  const sp1 = value.split("@");
+  if (!sp1 || sp1.length < 2) {
+    alert("変換に失敗しました。");
+    return;
+  }
+
+  const loc = sp1[1].split(",");
+
+  let lat = Number.parseFloat(loc[0]);
+  if (Number.isNaN(lat)) {
+    alert("変換に失敗しました。");
+    return;
+  }
+  setLocValue("lat-input", lat);
+
+  let log = Number.parseFloat(loc[1]);
+  if (Number.isNaN(log)) {
     alert("変換に失敗しました。");
     return;
   }
