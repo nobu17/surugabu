@@ -72,8 +72,7 @@ h2 {
   position: relative;
 }
 
-.markdown-body h1:after,
-h2:after {
+.markdown-body h1:after,h2:after {
   position: absolute;
   content: " ";
   display: block;
@@ -81,6 +80,11 @@ h2:after {
   bottom: -3px;
   width: 30%;
 }
+
+.markdown-body p {
+  line-height: 2;
+}
+
 
 .article-title {
   text-align: center;
