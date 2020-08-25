@@ -1,4 +1,4 @@
-<% set_meta_tags title: @article.title, description: @article.sub_title, og: { title: @article.title, type: 'article', image: @article.title_image_compressed_url }, twitter: { image: @article.title_image_compressed_url } %>
+<% set_meta_tags title: @article.meta_title(), description: @article.sub_title, og: { title: @article.title, type: 'article', image: @article.title_image_compressed_url }, twitter: { image: @article.title_image_compressed_url } %>
 <%= javascript_pack_tag 'article/application' %>
 
 <%= render partial: "layouts/breadcrumb", locals: { area: @areas.first } %>

@@ -34,6 +34,10 @@ class Article < ApplicationRecord
     end
   end
 
+  def meta_title
+    "#{title}:#{sub_title}"
+  end
+
   def title_image_compressed
     title_image
     # if title_image.attached?
