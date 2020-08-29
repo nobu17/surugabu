@@ -3,7 +3,7 @@
 module ApplicationHelper
   def default_meta_tags
     {
-      site: 'suruga-bu(駿河部)',
+      site: '駿河部',
       title: '静岡県(東部)の紹介メディア',
       reverse: true,
       charset: 'utf-8',

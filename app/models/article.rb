@@ -35,7 +35,7 @@ class Article < ApplicationRecord
   end
 
   def meta_title
-    "#{title}:#{sub_title}"
+    "#{title} |#{sub_title}"
   end
 
   def title_image_compressed
