@@ -51,7 +51,7 @@ Rails.application.routes.draw do
   get 'admin/category/:id/edit', to: 'category#edit'
   get 'admin/category/new', to: 'category#new'
 
-  get '/sitemap.xml.gz', to: redirect('https://storage.googleapis.com/' + ENV['GCS_BUCKET'] + '/sitemap.xml.gz', status: 301)
+  get '/sitemap.xml.gz', to: redirect('https://storage.googleapis.com/' + ENV['GCS_BUCKET'] + '.appspot.com/sitemap.xml.gz', status: 301)
 
   devise_for :users, skip: :all
   devise_scope :user do
