@@ -5,7 +5,7 @@ require 'google/cloud/storage'
 
 SitemapGenerator::Sitemap.default_host = 'https://surugabu.com'
 SitemapGenerator::Sitemap.adapter = SitemapGenerator::GoogleStorageAdapter.new(
-  credentials: ENV['GOOGLE_CREDENTIALS'].as_json,
+  credentials: ENV['GOOGLE_CREDENTIALS'],
   project_id: ENV['GCS_PROJECT_ID'],
   bucket: ENV['GCS_BUCKET']
 )
