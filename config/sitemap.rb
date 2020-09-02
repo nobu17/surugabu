@@ -2,7 +2,11 @@
 
 # Set the host name for URL creation
 SitemapGenerator::Sitemap.default_host = 'https://surugabu.com'
-SitemapGenerator::Sitemap.sitemaps_path = 'sitemaps/google'
+SitemapGenerator::Sitemap.adapter = SitemapGenerator::GoogleStorageAdapter.new(
+  credentials: ENV['GOOGLE_CREDENTIALS'].as_json,
+  project_id: ENV['GCS_PROJECT'],
+  bucket: ENV['GCS_BUCKET']
+)
 SitemapGenerator::Sitemap.create do
   add about_path, priority: 0.5
 
