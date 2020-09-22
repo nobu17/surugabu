@@ -31,7 +31,8 @@ window.onload = async () => {
 };
 
 async function loadMapData() {
-  const res = await fetch("map/all", {
+  const url = "https://" + location.hostname + "/map/all"
+  const res = await fetch(url, {
     method: "GET",
     headers: {
       "Content-Type": "application/json",
