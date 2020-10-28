@@ -13,7 +13,7 @@ window.onload = async () => {
     if (!mapTab) {
       displayMap();
     } else {
-      const observer = new MutationObserver(function () {        
+      const observer = new MutationObserver(function () {
         if (mapTab.style.display != "none") {
           setTimeout(() => {
             // map.invalidateSize();
@@ -31,7 +31,7 @@ window.onload = async () => {
 };
 
 async function loadMapData() {
-  const url = "https://" + location.hostname + "/map/all"
+  const url = "https://" + location.hostname + "/map/all";
   const res = await fetch(url, {
     method: "GET",
     headers: {
@@ -82,6 +82,7 @@ function addMakerByGroup(map, categoryList) {
 }
 
 function getMarker(placeData) {
+  placeData = getJapanToWorldConverted(placeData);
   let sucontents = `<a target="_blank" rel="noopener noreferrer" href="${article_url}${placeData.id}"><h5>${placeData.title}</h5></a>`;
   sucontents += `<a target="_blank" rel="noopener noreferrer" href="${article_url}${placeData.id}"><p>${placeData.sub_title}</p></a>`;
   sucontents += `<a target="_blank" rel="noopener noreferrer" href="${article_url}${placeData.id}"><img src="${placeData.title_image_compressed_url}" width="200"></img></a>`;
@@ -117,4 +118,13 @@ function groupByCategory(data) {
 
 function getMap() {
   return L.map("mapcontainer", { zoomControl: true });
+}
+
+function getJapanToWorldConverted(placeData) {
+  let japanLat = placeData.latitude * 1.000106961 - placeData.longitude * 0.000017467 - 0.004602017;
+  let japanLng = placeData.longitude * 1.000083049 + placeData.latitude * 0.000046047 - 0.010041046;
+
+  placeData.latitude = japanLat;
+  placeData.longitude = japanLng;
+  return placeData;
 }
