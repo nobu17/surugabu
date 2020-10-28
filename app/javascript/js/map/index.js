@@ -60,9 +60,14 @@ function initMap(markerData) {
     map.setView(mpoint, 11);
   }
 
-  L.tileLayer("http://cyberjapandata.gsi.go.jp/xyz/pale/{z}/{x}/{y}.png", {
+  //L.tileLayer("http://cyberjapandata.gsi.go.jp/xyz/pale/{z}/{x}/{y}.png", {
+  //  attribution:
+  //    "<a href='http://portal.cyberjapan.jp/help/termsofuse.html' target='_blank'></a>",
+  //}).addTo(map);
+
+  L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
     attribution:
-      "<a href='http://portal.cyberjapan.jp/help/termsofuse.html' target='_blank'></a>",
+      '© <a href="http://osm.org/copyright">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>',
   }).addTo(map);
 
   addMakerByGroup(map, markerData);
@@ -118,4 +123,3 @@ function groupByCategory(data) {
 function getMap() {
   return L.map("mapcontainer", { zoomControl: true });
 }
-
