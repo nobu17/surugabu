@@ -43,7 +43,7 @@
         </div>
 
         <div class="mx-auto" style="width: 300px;">
-            <%= will_paginate(@articles, :renderer => WillPaginate::ActionView::Bootstrap4LinkRenderer, :previous_label => ' &lt', :next_label => '&gt', inner_window: 3, outer_window: 3) %>
+            <%= will_paginate(@articles, :renderer => WillPaginate::ActionView::Bootstrap4LinkRenderer, :previous_label => ' &lt', :next_label => '&gt', inner_window: 2, outer_window: 1) %>
         </div>
     </div>
 
