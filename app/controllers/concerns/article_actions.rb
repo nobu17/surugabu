@@ -20,6 +20,8 @@ module ArticleActions
                 else
                   Article.cached_page(params[:page])
                 end
+    
+    @page = params[:page]
   end
 
   def set_edit_articles
