@@ -93,7 +93,7 @@ function getMarker(placeData) {
   //ポップアップオブジェクトを作成
   const popup1 = L.popup({ maxWidth: 250 }).setContent(sucontents);
   //マーカーにポップアップを紐付けする。同時にbindTooltipでツールチップも追加
-  return L.marker([placeData.latitude, placeData.longitude], {
+  return L.marker([placeData.latitude, placeData.longitude + 0.00215], {
     draggable: false,
   }).bindPopup(popup1);
 }
