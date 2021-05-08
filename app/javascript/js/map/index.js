@@ -75,18 +75,20 @@ function initMap(markerData) {
 
 function addMakerByGroup(map, categoryList) {
   let allLayers = {};
+  let iconIndex = 0;
   Object.keys(categoryList).forEach((categoryKey) => {
     const markers = L.featureGroup();
     categoryList[categoryKey].forEach((value) => {
-      markers.addLayer(getMarker(value));
+      markers.addLayer(getMarker(value, iconIndex));
     });
     allLayers[categoryKey] = markers;
     map.addLayer(markers);
+    iconIndex++;
   });
   L.control.layers(null, allLayers).addTo(map);
 }
 
-function getMarker(placeData) {
+function getMarker(placeData, iconIndex) {
   let sucontents = `<a target="_blank" rel="noopener noreferrer" href="${article_url}${placeData.id}"><h5>${placeData.title}</h5></a>`;
   sucontents += `<a target="_blank" rel="noopener noreferrer" href="${article_url}${placeData.id}"><p>${placeData.sub_title}</p></a>`;
   sucontents += `<a target="_blank" rel="noopener noreferrer" href="${article_url}${placeData.id}"><img src="${placeData.title_image_compressed_url}" width="200"></img></a>`;
@@ -95,7 +97,26 @@ function getMarker(placeData) {
   //マーカーにポップアップを紐付けする。同時にbindTooltipでツールチップも追加
   return L.marker([placeData.latitude, placeData.longitude + 0.00215], {
     draggable: false,
+    icon: L.spriteIcon(getIcon(iconIndex))
   }).bindPopup(popup1);
+}
+
+const iconList = [
+  'orange',
+  'yellow',
+  'green',
+  'red',
+  'purple',
+  'violet',
+  'blue'
+]
+
+function getIcon(iconIndex) {
+  if(iconList[iconIndex]) {
+    return iconList[iconIndex];
+  } else {
+    return 'blue';
+  }
 }
 
 function displayMap() {

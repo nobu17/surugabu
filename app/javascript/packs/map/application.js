@@ -1,4 +1,5 @@
 require("leaflet");
+require("js/map/leaflet.sprite");
 require("js/map/index");
 import 'leaflet/dist/leaflet.css'
 
@@ -14,3 +15,4 @@ L.Icon.Default.mergeOptions({
   iconUrl: iconUrl,
   shadowUrl: shadowUrl
 });
+
