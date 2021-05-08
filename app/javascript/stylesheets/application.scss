@@ -8,7 +8,7 @@
 
 body {
   margin-top: 40px;
-  font-family: "Lato", "Noto Sans JP", "ヒラギノ角ゴ ProN",
+  font-family: "M PLUS Rounded 1c", "Lato", "Noto Sans JP", "ヒラギノ角ゴ ProN",
     "Hiragino Kaku Gothic ProN", "メイリオ", Meiryo, "ＭＳ Ｐゴシック",
     "MS PGothic", sans-serif;
 }
@@ -20,7 +20,7 @@ h4,
 h5,
 h6,
 p {
-  font-family: "Lato", "Noto Sans JP", "ヒラギノ角ゴ ProN",
+  font-family: "M PLUS Rounded 1c", "Lato", "Noto Sans JP", "ヒラギノ角ゴ ProN",
     "Hiragino Kaku Gothic ProN", "メイリオ", Meiryo, "ＭＳ Ｐゴシック",
     "MS PGothic", sans-serif;
 }
@@ -35,6 +35,19 @@ h2 {
 
 .nav-link {
   font-size: 15px;
+}
+
+/* header */
+.main-header {
+  color: white;
+}
+/* header menu */
+.navbar-dark .navbar-nav .nav-link {
+  color: white;
+}
+
+.sub-header {
+  letter-spacing: 0.15em;
 }
 
 /* mobile */
@@ -103,6 +116,7 @@ ol {
 ol li {
   line-height: 1.5; /*文の行高*/
   padding: 0.5em 0; /*前後の文との余白*/
+  list-style-type: circle;
 }
 
 .article-title {
