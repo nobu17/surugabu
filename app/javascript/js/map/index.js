@@ -102,13 +102,13 @@ function getMarker(placeData, iconIndex) {
 }
 
 const iconList = [
-  'orange',
-  'yellow',
   'green',
+  'blue',
+  'orange',
   'red',
   'purple',
   'violet',
-  'blue'
+  'yellow'
 ]
 
 function getIcon(iconIndex) {
